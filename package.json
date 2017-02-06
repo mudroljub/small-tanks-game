@@ -1,0 +1,21 @@
+{
+  "name": "tenkici",
+  "version": "0.0.1",
+  "description": "Tenkići igrica.",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mudroljub/tenkici.git"
+  },
+  "main": "main.js",
+  "scripts": {
+    "start": "webpack-dev-server --inline --hot",
+    "build": "webpack"
+  },
+  "devDependencies": {
+    "file-loader": "^0.9.0",
+    "webpack": "^2.2.0",
+    "webpack-dev-server": "^2.2.0"
+  },
+  "author": "mudroljub",
+  "license": "MIT"
+}
