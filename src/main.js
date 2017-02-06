@@ -3,11 +3,15 @@ import platno from 'io/platno'
 import UI from 'core/UI'
 import Scena from 'core/Scena'
 import Pozadina from 'core/Pozadina'
-import TenkPartizanski from './klase/TenkPartizanski'
-import TenkNemacki from './klase/TenkNemacki'
-import slikaPozadina from 'slike/pozadine/razrusen-grad-savremen.jpg'
+import TenkPartizanski from './akteri/TenkPartizanski'
+import TenkNemacki from './akteri/TenkNemacki'
 import html from './sablon.html'
-const slike = [slikaPozadina]
+
+import slikaPozadina from 'slike/pozadine/razrusen-grad-savremen.jpg'
+import slikaTenkPodnozje from 'slike/2d-bocno/partizanski-tenk-bez-cevi.png'
+import slikaTenkCev from 'slike/2d-bocno/partizanski-tenk-cev.png'
+
+const slike = [slikaPozadina, slikaTenkPodnozje, slikaTenkCev]
 
 function init() {
 
@@ -64,7 +68,6 @@ function init() {
 
   reset()
   scena.start()
-
 }
 
 Promise.all(slike.map(ucitaj)).then(init)

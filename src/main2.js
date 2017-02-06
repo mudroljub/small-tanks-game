@@ -1,8 +1,8 @@
 import {ucitaj} from 'utils'
 import Slika from 'core/Slika'
 import Scena from 'core/Scena'
-import slikaTenkPodnozje from 'slike/2d-bocno/partizanski-tenk-bez-cevi.png'
-import slikaTenkCev from 'slike/2d-bocno/partizanski-tenk-cev.png'
+import slikaTenkPodnozje from 'slike/predmeti/partizanski-tenk-bez-cevi.png'
+import slikaTenkCev from 'slike/predmeti/partizanski-tenk-cev.png'
 const slike = [slikaTenkPodnozje, slikaTenkCev]
 
 function init() {

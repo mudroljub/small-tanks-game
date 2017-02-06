@@ -5,10 +5,10 @@
 import UI from 'core/UI'
 import Scena from 'core/Scena'
 import TenkPartizanski from './TenkPartizanski'
-import Zbun from 'src/2d-bocno/Zbun'
-import Shuma from 'src/2d-bocno/Shuma'
-import Planina from 'src/2d-bocno/Planina'
-import Oblak from 'src/2d-bocno/Oblak'
+import Zbun from 'src/predmeti/Zbun'
+import Shuma from 'src/predmeti/Shuma'
+import Planina from 'src/predmeti/Planina'
+import Oblak from 'src/predmeti/Oblak'
 import platno from 'io/platno'
 
 /*** KONFIG ***/

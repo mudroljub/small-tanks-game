@@ -13,15 +13,13 @@ import slikaGranata from 'slike/granata.gif'
 
 export default class TenkBocnoIgrac extends Igrac {
 
-  constructor(src, jelNadesno, sirina, visina) {
-    super(src, sirina, visina)
+  constructor(src) {
+    super(src)
     this.x = 100
-    this.okrenutNadesno = jelNadesno
     this.energija = 100
-    this.brzina = 0
     this.granice = ogranici
-    if (this.okrenutNadesno) this.podesiTipke($.A, $.D, $.W, $.S, $.RAZMAK)
-    if (!this.okrenutNadesno) this.podesiTipke($.LEVO, $.DESNO, $.GORE, $.DOLE, $.M)
+    this.okrenutNadesno = true
+    this.podesiTipke($.A, $.D, $.W, $.S, $.RAZMAK)
   }
 
   update() {
@@ -39,7 +37,6 @@ export default class TenkBocnoIgrac extends Igrac {
 
   postaviCev(cevSrc, sirina, visina) {
     this.cev = new Predmet(cevSrc, sirina, visina)
-    this.cev.brzina = 0
     this.podesiUgaoCevi()
     this.postaviGranatu()
     this.ograniciCev()
