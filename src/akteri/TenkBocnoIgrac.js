@@ -10,6 +10,7 @@ import Igrac from 'core/Igrac'
 import platno from 'io/platno'
 import {ogranici} from 'akcije/granice'
 import slikaGranata from 'slike/granata.gif'
+const PI = Math.PI
 
 export default class TenkBocnoIgrac extends Igrac {
 
@@ -27,6 +28,7 @@ export default class TenkBocnoIgrac extends Igrac {
     super.update()
     this.praviGravitaciju()
     this.granata.update()
+    this.ograniciCev()
   }
 
   render() {
@@ -39,17 +41,20 @@ export default class TenkBocnoIgrac extends Igrac {
     this.cev = new Predmet(cevSrc, sirina, visina)
     this.podesiUgaoCevi()
     this.postaviGranatu()
-    this.ograniciCev()
   }
 
   podesiUgaoCevi() {
-    const ugaoCevi = this.okrenutNadesno ? -_.uRadijane(10) : _.uRadijane(10)
-    this.cev.ugao = ugaoCevi
-    this.pomerajCevi = this.okrenutNadesno ? -_.uRadijane(1) : _.uRadijane(1)
-    const maxDonjiPomak = this.okrenutNadesno ? _.uRadijane(15) : _.uRadijane(10)
-    const maxGornjiPomak = this.okrenutNadesno ? _.uRadijane(10) : _.uRadijane(15)
-    this.donjiLimitCevi = ugaoCevi - maxDonjiPomak
-    this.gornjiLimitCevi = ugaoCevi + maxGornjiPomak
+    if (this.okrenutNadesno) {
+      const ugaoCevi = -0.17
+      this.cev.ugao = ugaoCevi
+      this.pomerajCevi = -0.02
+    }
+
+    if (!this.okrenutNadesno) {
+      const ugaoCevi = 0.17
+      this.cev.ugao = ugaoCevi
+      this.pomerajCevi = 0.02
+    }
   }
 
   postaviGranatu() {
@@ -62,8 +67,13 @@ export default class TenkBocnoIgrac extends Igrac {
   }
 
   ograniciCev() {
-    if (this.cev.ugao < this.donjiLimitCevi) this.cev.ugao = this.donjiLimitCevi
-    if (this.cev.ugao > this.gornjiLimitCevi) this.cev.ugao = this.gornjiLimitCevi
+    if (this.okrenutNadesno) {
+      if (this.cev.ugao > 0) this.cev.ugao = 0
+      if (this.cev.ugao < -PI/4) this.cev.ugao = -PI/4
+    }
+    if (!this.okrenutNadesno) {
+      console.log('cev.ugao:', this.cev.ugao)
+    }
   }
 
   nagore() {
