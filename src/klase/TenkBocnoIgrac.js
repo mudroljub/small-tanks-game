@@ -26,10 +26,15 @@ export default class TenkBocnoIgrac extends Igrac {
 
   update() {
     this.cev.polozaj(this.x + 1, this.y - 9)
-    this.cev.update()
     super.update()
     this.praviGravitaciju()
     this.granata.update()
+  }
+
+  render() {
+    super.render()
+    this.cev.render()
+    this.granata.render()
   }
 
   postaviCev(cevSrc, sirina, visina) {

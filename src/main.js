@@ -44,7 +44,6 @@ const proveriPogodak = (granata, tenk, pomak) => {
 /*** LOGIKA ***/
 
 scena.update = () => {
-  pozadina.update()
   tenk2.proveriTipke()
   tenk1.update()
   tenk2.update()
@@ -53,7 +52,10 @@ scena.update = () => {
 }
 
 scena.render = () => {
+  pozadina.render()
   interfejs.render()
+  tenk1.render()
+  tenk2.render()
 }
 
 reset()
