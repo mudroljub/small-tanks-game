@@ -18,6 +18,7 @@ export default class Tenk extends Predmet {
     this.y = 350
     this.cev = new Cev(this, slikaTenkCev)
     this.granata = new Granata(this, slikaGranata)
+    this.ugaoSlike = 2*PI
   }
 
   update() {
