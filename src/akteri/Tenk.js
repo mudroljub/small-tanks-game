@@ -5,6 +5,11 @@ import Granata from './Granata'
 import slikaTenkCev from 'slike/2d-bocno/partizanski-tenk-cev2.png'
 import slikaGranata from 'slike/granata.gif'
 
+const PI = Math.PI
+const potisak = 0.5
+const statickoTrenje = 0.3
+const kinetickoTrenje = 0.1
+
 export default class Tenk extends Predmet {
 
   constructor(src) {
@@ -16,6 +21,7 @@ export default class Tenk extends Predmet {
   }
 
   update() {
+    this.trenje()
     super.update()
     this.cev.update()
     this.granata.update()
@@ -37,11 +43,13 @@ export default class Tenk extends Predmet {
   }
 
   nalevo() {
-    this.x--
+    this.ugao = PI
+    this.dodajSilu(potisak)
   }
 
   nadesno() {
-    this.x++
+    this.ugao = 0
+    this.dodajSilu(potisak)
   }
 
   nagore() {
@@ -54,5 +62,10 @@ export default class Tenk extends Predmet {
 
   pucaj() {
     this.granata.pucaj()
+  }
+
+  trenje() {
+    const koeficijent = this.brzina > 0.1 ? kinetickoTrenje : statickoTrenje
+    super.trenje(koeficijent)
   }
 }
