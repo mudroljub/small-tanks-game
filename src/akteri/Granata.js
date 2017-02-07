@@ -2,18 +2,17 @@ import {nestani} from 'akcije/granice'
 import Predmet from 'core/Predmet'
 
 export default class Granata extends Predmet {
-  constructor(vlasnik, src) {
+  constructor(cev, src) {
     super(src)
-    this.vlasnik = vlasnik
-    this.cev = vlasnik.cev
+    this.cev = cev
     this.ispaljena = false
     this.granice = nestani
-    // this.sakrij()
+    this.sakrij()
   }
 
   update() {
+    super.update()
     if (!this.ispaljena) this.pratiCev()
-    if (this.ispaljena) this.leti()
   }
 
   pratiCev() {
@@ -25,10 +24,8 @@ export default class Granata extends Predmet {
   }
 
   pucaj() {
+    this.pokazi()
+    this.dodajSilu(2)
     this.ispaljena = true
-  }
-
-  leti() {
-
   }
 }

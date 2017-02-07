@@ -36,7 +36,8 @@
       "no-duplicate-imports": "error",
       "no-var": "error",
       "object-shorthand": "error",
-      "prefer-const": "error"
+      "prefer-const": "warn",
+      "no-invalid-this": "error"
   },
   "parserOptions": {
       "ecmaVersion": 8,

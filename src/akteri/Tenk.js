@@ -9,6 +9,9 @@ const PI = Math.PI
 const potisak = 0.5
 const statickoTrenje = 0.3
 const kinetickoTrenje = 0.1
+let ukupnoGranata = 10
+
+// da ispaljuje jednu po jednu, kad izleti sa ekrana, smanjuje se broj i moze drugu?
 
 export default class Tenk extends Predmet {
 
@@ -17,19 +20,28 @@ export default class Tenk extends Predmet {
     this.x = 150
     this.y = 350
     this.cev = new Cev(this, slikaTenkCev)
-    this.granata = new Granata(this, slikaGranata)
+    this.granate = []
+    this.praviGranate()
     this.ugaoSlike = 2*PI
+  }
+
+  praviGranate() {
+    for (let i = ukupnoGranata; i > 0; i--) {
+      this.granate[i-1] = new Granata(this.cev, slikaGranata)
+    }
   }
 
   update() {
     this.trenje()
     super.update()
     this.cev.update()
-    this.granata.update()
+    this.granate.map(g => g.update())
   }
 
   render() {
-    this.granata.render()
+    // this.granate[ukupnoGranata-1].render()
+    // this.granate.map(g => g.render)
+    this.granate.map(g => g.render())
     this.cev.render()
     super.render()
   }
@@ -62,7 +74,9 @@ export default class Tenk extends Predmet {
   }
 
   pucaj() {
-    this.granata.pucaj()
+    this.granate[ukupnoGranata-1].pucaj()
+    console.log(ukupnoGranata)
+    ukupnoGranata--
   }
 
   trenje() {
