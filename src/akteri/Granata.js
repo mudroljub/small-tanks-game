@@ -1,6 +1,8 @@
 import {nestani} from 'akcije/granice'
 import Predmet from 'core/Predmet'
 
+const potisak = 20
+
 export default class Granata extends Predmet {
   constructor(cev, src) {
     super(src)
@@ -25,7 +27,7 @@ export default class Granata extends Predmet {
 
   pucaj() {
     this.pokazi()
-    this.dodajSilu(2)
+    this.dodajSilu(potisak)
     this.ispaljena = true
   }
 }
