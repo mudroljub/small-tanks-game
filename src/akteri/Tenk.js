@@ -1,4 +1,3 @@
-// putanja projektila
 // drugi tenk
 // ui
 
@@ -15,7 +14,7 @@ const potisak = 0.5
 const statickoTrenje = 0.3
 const kinetickoTrenje = 0.1
 const vremePunjenja = 1000
-let ukupnoGranata = 10
+const brojGranata = 10
 
 export default class Tenk extends Predmet {
 
@@ -34,7 +33,10 @@ export default class Tenk extends Predmet {
     this.trenje()
     super.update()
     this.cev.update()
-    this.granate.map(g => g.update())
+    this.granate.map((granata, i) => {
+      granata.update()
+      if (granata.nestala) this.granate.splice(i, 1)
+    })
   }
 
   render() {
@@ -44,18 +46,18 @@ export default class Tenk extends Predmet {
   }
 
   praviGranate() {
-    for (let i = ukupnoGranata; i > 0; i--) {
-      this.granate[i - 1] = new Granata(this.cev, slikaGranata)
+    for (let i = brojGranata - 1; i >= 0; i--) {
+      this.granate[i] = new Granata(this.cev, slikaGranata)
     }
   }
 
-  skaliranjeObecaj(posto) {
-    super.skaliranjeObecaj(posto)
-    this.cev.skaliranjeObecaj(posto)
+  skaliranjeObecaj(odsto) {
+    super.skaliranjeObecaj(odsto)
+    this.cev.skaliranjeObecaj(odsto)
   }
 
   trenje() {
-    const koeficijent = this.brzina > 0.1 ? kinetickoTrenje : statickoTrenje
+    const koeficijent = (this.brzina > 0.1) ? kinetickoTrenje : statickoTrenje
     super.trenje(koeficijent)
   }
 
@@ -66,30 +68,29 @@ export default class Tenk extends Predmet {
   /* TIPKE */
 
   nalevo() {
-    this.ugao = PI
-    this.dodajSilu(potisak)
+    this.dodajSilu(potisak * 0.6, PI)
   }
 
   nadesno() {
-    this.ugao = 0
-    this.dodajSilu(potisak)
+    this.dodajSilu(potisak, 0)
   }
 
   nagore() {
-    if (this.cev.ugao < -PI/8) return
-    this.cev.ugao -= 0.01
+    this.cev.nagore()
   }
 
   nadole() {
-    if (this.cev.ugao > 0) return
-    this.cev.ugao += 0.01
+    this.cev.nadole()
+  }
+
+  trzaj() {
+    this.dodajSilu(potisak * 2, PI)
   }
 
   pucaj() {
-    if (this.vreme.proteklo < vremePunjenja || !ukupnoGranata) return
-    this.granate[ukupnoGranata - 1].pucaj()
-    this.nalevo() // trzaj
-    ukupnoGranata--
+    if (this.vreme.proteklo < vremePunjenja || !this.granate.length) return
+    this.granate[this.granate.length-1].pucaj()
+    this.trzaj()
     this.vreme.reset()
   }
 }

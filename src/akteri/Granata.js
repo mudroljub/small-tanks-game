@@ -2,19 +2,23 @@ import {nestani} from 'akcije/granice'
 import Predmet from 'core/Predmet'
 
 const potisak = 50
+const gravitacija = .6
 
 export default class Granata extends Predmet {
   constructor(cev, src) {
     super(src)
     this.cev = cev
     this.ispaljena = false
+    this.nestala = false
     this.granice = nestani
     this.sakrij()
   }
 
   update() {
     if (!this.ispaljena) return
+    this.dodajSilu(gravitacija, Math.PI/2)
     super.update()
+    this.ugao = Math.atan2(this.dy, this.dx)
   }
 
   postavi() {
@@ -28,5 +32,10 @@ export default class Granata extends Predmet {
     this.postavi()
     this.dodajSilu(potisak)
     this.ispaljena = true
+  }
+
+  nestani() {
+    super.nestani()
+    this.nestala = true
   }
 }

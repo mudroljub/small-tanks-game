@@ -20,7 +20,7 @@
       "no-param-reassign": "error",
       "vars-on-top": "error",
       "no-shadow-restricted-names": "error",
-      "indent": ["error", 2],
+      "indent": ["warn", 2],
       "operator-assignment": ["error", "always"],
       "space-before-blocks": "warn",
       "space-before-function-paren": ["warn", "never"],
