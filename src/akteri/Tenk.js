@@ -11,7 +11,6 @@ const potisak = 0.5
 const statickoTrenje = 0.3
 const kinetickoTrenje = 0.1
 let ukupnoGranata = 10
-let pripremi = false
 
 export default class Tenk extends Predmet {
 
@@ -22,7 +21,7 @@ export default class Tenk extends Predmet {
     this.cev = new Cev(this, slikaTenkCev)
     this.granate = []
     this.praviGranate()
-    this.ugaoSlike = 2*PI
+    this.ugaoSlike = 2 * PI
   }
 
   update() {
@@ -42,7 +41,7 @@ export default class Tenk extends Predmet {
 
   praviGranate() {
     for (let i = ukupnoGranata; i > 0; i--) {
-      this.granate[i-1] = new Granata(this.cev, slikaGranata)
+      this.granate[i - 1] = new Granata(this.cev, slikaGranata)
     }
   }
 
@@ -50,18 +49,18 @@ export default class Tenk extends Predmet {
     super.skaliranjeObecaj(posto)
     this.cev.skaliranjeObecaj(posto)
   }
- 
+
   trenje() {
     const koeficijent = this.brzina > 0.1 ? kinetickoTrenje : statickoTrenje
     super.trenje(koeficijent)
   }
- 
+
   proveriTipke() {
-	proveriTipke(this)	
+    proveriTipke(this)
   }
 
   /* TIPKE */
-  
+
   nalevo() {
     this.ugao = PI
     this.dodajSilu(potisak)
@@ -81,8 +80,8 @@ export default class Tenk extends Predmet {
   }
 
   pucaj() {
-	if (ukupnoGranata == 0) return
-    this.granate[ukupnoGranata-1].pucaj()
+    if (ukupnoGranata == 0) return
+    this.granate[ukupnoGranata - 1].pucaj()
     ukupnoGranata--
   }
 }
