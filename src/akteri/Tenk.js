@@ -1,5 +1,4 @@
 // da tenk trza na pucanj
-import tipke from 'io/tipke'
 import {proveriTipke} from 'akcije/kontrole'
 import Predmet from 'core/Predmet'
 import Cev from './Cev'
@@ -13,9 +12,6 @@ const statickoTrenje = 0.3
 const kinetickoTrenje = 0.1
 let ukupnoGranata = 10
 let pripremi = false
-
-// da ispaljuje jednu po jednu, kad izleti sa ekrana, smanjuje se broj i moze drugu?
-// na pritisak pripremi granatu, na pustanje je ispali
 
 export default class Tenk extends Predmet {
 
@@ -85,8 +81,8 @@ export default class Tenk extends Predmet {
   }
 
   pucaj() {
+	if (ukupnoGranata == 0) return
     this.granate[ukupnoGranata-1].pucaj()
-    console.log(ukupnoGranata)
     ukupnoGranata--
   }
 }
