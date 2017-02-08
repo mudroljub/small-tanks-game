@@ -1,5 +1,9 @@
-// da tenk trza na pucanj
+// putanja projektila
+// drugi tenk
+// ui
+
 import {proveriTipke} from 'akcije/kontrole'
+import Vreme from 'core/Vreme'
 import Predmet from 'core/Predmet'
 import Cev from './Cev'
 import Granata from './Granata'
@@ -10,6 +14,7 @@ const PI = Math.PI
 const potisak = 0.5
 const statickoTrenje = 0.3
 const kinetickoTrenje = 0.1
+const vremePunjenja = 1000
 let ukupnoGranata = 10
 
 export default class Tenk extends Predmet {
@@ -19,6 +24,7 @@ export default class Tenk extends Predmet {
     this.x = 150
     this.y = 350
     this.cev = new Cev(this, slikaTenkCev)
+    this.vreme = new Vreme()
     this.granate = []
     this.praviGranate()
     this.ugaoSlike = 2 * PI
@@ -32,8 +38,6 @@ export default class Tenk extends Predmet {
   }
 
   render() {
-    // this.granate[ukupnoGranata-1].render()
-    // this.granate.map(g => g.render)
     this.granate.map(g => g.render())
     this.cev.render()
     super.render()
@@ -72,16 +76,20 @@ export default class Tenk extends Predmet {
   }
 
   nagore() {
+    if (this.cev.ugao < -PI/8) return
     this.cev.ugao -= 0.01
   }
 
   nadole() {
+    if (this.cev.ugao > 0) return
     this.cev.ugao += 0.01
   }
 
   pucaj() {
-    if (ukupnoGranata == 0) return
+    if (this.vreme.proteklo < vremePunjenja || !ukupnoGranata) return
     this.granate[ukupnoGranata - 1].pucaj()
+    this.nalevo() // trzaj
     ukupnoGranata--
+    this.vreme.reset()
   }
 }

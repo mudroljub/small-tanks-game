@@ -1,7 +1,7 @@
 import {nestani} from 'akcije/granice'
 import Predmet from 'core/Predmet'
 
-const potisak = 20
+const potisak = 50
 
 export default class Granata extends Predmet {
   constructor(cev, src) {
@@ -13,20 +13,19 @@ export default class Granata extends Predmet {
   }
 
   update() {
+    if (!this.ispaljena) return
     super.update()
-    if (!this.ispaljena) this.pratiCev()
   }
 
-  pratiCev() {
-    // this.x = Math.cos(this.cev.ugao) * this.cev.dijagonala + this.cev.x * 1.01
-    // this.y = Math.sin(this.cev.ugao) * this.cev.dijagonala + this.cev.y * 1.05
-    this.x = this.cev.x
-    this.y = this.cev.y
+  postavi() {
+    this.x = Math.cos(this.cev.ugao) * this.cev.dijagonala + this.cev.x * 1.01
+    this.y = Math.sin(this.cev.ugao) * this.cev.dijagonala + this.cev.y * 1.02
     this.ugao = this.cev.ugao
   }
 
   pucaj() {
     this.pokazi()
+    this.postavi()
     this.dodajSilu(potisak)
     this.ispaljena = true
   }
