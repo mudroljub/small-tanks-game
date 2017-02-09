@@ -6,7 +6,8 @@ import Vreme from 'core/Vreme'
 import Predmet from 'core/Predmet'
 import Cev from './Cev'
 import Granata from './Granata'
-import slikaTenkCev from 'slike/2d-bocno/partizanski-tenk-cev2.png'
+import slikaTenkPodnozje from 'slike/tenkovi/partizanski-tenk-bez-cevi.png'
+import slikaTenkCev from 'slike/tenkovi/partizanski-tenk-cev.png'
 import slikaGranata from 'slike/granata.gif'
 
 const PI = Math.PI
@@ -18,7 +19,7 @@ const brojGranata = 10
 
 export default class Tenk extends Predmet {
 
-  constructor(src) {
+  constructor(src = slikaTenkPodnozje) {
     super(src)
     this.x = 150
     this.y = 350

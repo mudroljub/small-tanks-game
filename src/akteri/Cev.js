@@ -28,7 +28,7 @@ export default class Cev extends Predmet {
   }
 
   nagore() {
-    if (this.ugao < -PI/8) return
+    if (this.ugao < -PI * 0.2) return
     this.ugao -= 0.01
   }
 
