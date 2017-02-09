@@ -18,7 +18,7 @@ npm start
 Browser će se automatski osvežavati svaki put kada sačuvaš izmenu.
 
 ## TODO
-
+* povezati skalar sa z osom
 * ekran igraj ponovo kad pogine
 * ubaciti zvuk i eksploziju
 * ubaciti uništen tenk

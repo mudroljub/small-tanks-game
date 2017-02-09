@@ -7,6 +7,7 @@ export default class Cev extends Predmet {
   constructor(vlasnik, src) {
     super(src)
     this.vlasnik = vlasnik
+    console.log(vlasnik)
     this.ugao = -Math.PI / 16
   }
 
@@ -18,6 +19,7 @@ export default class Cev extends Predmet {
     podloga.save()
     podloga.translate(this.x, this.y)
     podloga.rotate(this.ugao)
+    podloga.scale(this.vlasnik.z, this.vlasnik.z)
     podloga.drawImage(this.slika, 0, 0, this.sirina, this.visina)
     podloga.restore()
   }

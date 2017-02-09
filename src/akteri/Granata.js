@@ -5,9 +5,10 @@ const potisak = 50
 const gravitacija = .6
 
 export default class Granata extends Predmet {
-  constructor(cev, src) {
+  constructor(vlasnik, src) {
     super(src)
-    this.cev = cev
+    this.vlasnik = vlasnik
+    this.z = vlasnik.z
     this.ispaljena = false
     this.nestala = false
     this.granice = nestani
@@ -22,9 +23,9 @@ export default class Granata extends Predmet {
   }
 
   postavi() {
-    this.x = Math.cos(this.cev.ugao) * this.cev.dijagonala + this.cev.x * 1.01
-    this.y = Math.sin(this.cev.ugao) * this.cev.dijagonala + this.cev.y * 1.02
-    this.ugao = this.cev.ugao
+    this.x = Math.cos(this.vlasnik.ugao) * this.vlasnik.dijagonala + this.vlasnik.x * 1.01
+    this.y = Math.sin(this.vlasnik.ugao) * this.vlasnik.dijagonala + this.vlasnik.y * 1.02
+    this.ugao = this.vlasnik.ugao
   }
 
   pucaj() {
