@@ -1,13 +1,10 @@
-// drugi tenk
-// ui
-
 import tipke, {A, S, W, D, RAZMAK} from 'io/tipke'
 import Vreme from 'klase/Vreme'
 import Predmet from 'klase/Predmet'
 import Cev from './Cev'
 import Granata from './Granata'
-import slikaTenkPodnozje from 'slike/tenkovi/partizanski-tenk-bez-cevi.png'
-import slikaTenkCev from 'slike/tenkovi/partizanski-tenk-cev.png'
+import slikaTenkPodnozje from 'slike/tenkovi/jna-tenk-podnozje.png'
+import slikaTenkCev from 'slike/tenkovi/jna-tenk-cev.png'
 import slikaGranata from 'slike/granata.gif'
 
 const PI = Math.PI
@@ -22,7 +19,6 @@ export default class Tenk extends Predmet {
   constructor(src = slikaTenkPodnozje) {
     super(src)
     this.x = 150
-    this.y = 350
     this.cev = new Cev(this, slikaTenkCev)
     this.vreme = new Vreme()
     this.granate = []

@@ -11,6 +11,7 @@
       "quotes": ["error", "single"],
       "no-undef": "error",
       "no-unused-vars": "error",
+      "no-redeclare": "error",
       "no-use-before-define": "error",
       "no-dupe-args": "error",
       "no-dupe-keys": "error",

@@ -7,7 +7,6 @@ export default class Cev extends Predmet {
   constructor(vlasnik, src) {
     super(src)
     this.vlasnik = vlasnik
-    console.log(vlasnik)
     this.ugao = -Math.PI / 16
   }
 
