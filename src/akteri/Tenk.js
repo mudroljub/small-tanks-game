@@ -1,7 +1,7 @@
 // drugi tenk
 // ui
 
-import {proveriTipke} from 'akcije/kontrole'
+import tipke, {A, S, W, D, RAZMAK} from 'io/tipke'
 import Vreme from 'core/Vreme'
 import Predmet from 'core/Predmet'
 import Cev from './Cev'
@@ -54,6 +54,7 @@ export default class Tenk extends Predmet {
   skaliranjeObecaj(odsto) {
     super.skaliranjeObecaj(odsto)
     this.cev.skaliranjeObecaj(odsto)
+    this.granate.map(g => g.skaliranjeObecaj(odsto))
   }
 
   trenje() {
@@ -62,35 +63,31 @@ export default class Tenk extends Predmet {
   }
 
   proveriTipke() {
-    proveriTipke(this)
-  }
+    if (tipke[A]) {
+      this.dodajSilu(potisak * 0.6, PI)
+    }
 
-  /* TIPKE */
+    if (tipke[D]) {
+      this.dodajSilu(potisak, 0)
+    }
 
-  nalevo() {
-    this.dodajSilu(potisak * 0.6, PI)
-  }
+    if (tipke[W]) {
+      this.cev.nagore()
+    }
 
-  nadesno() {
-    this.dodajSilu(potisak, 0)
-  }
+    if (tipke[S]) {
+      this.cev.nadole()
+    }
 
-  nagore() {
-    this.cev.nagore()
-  }
-
-  nadole() {
-    this.cev.nadole()
+    if (tipke[RAZMAK]) {
+      if (this.vreme.proteklo < vremePunjenja || !this.granate.length) return
+      this.granate[this.granate.length-1].pucaj()
+      this.trzaj()
+      this.vreme.reset()
+    }
   }
 
   trzaj() {
     this.dodajSilu(potisak * 2, PI)
-  }
-
-  pucaj() {
-    if (this.vreme.proteklo < vremePunjenja || !this.granate.length) return
-    this.granate[this.granate.length-1].pucaj()
-    this.trzaj()
-    this.vreme.reset()
   }
 }

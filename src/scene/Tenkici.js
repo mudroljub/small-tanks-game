@@ -13,7 +13,7 @@ export default function sceneController() {
   const tenk = new Tenk(slikaTenkPodnozje)
   tenk.y = nivoTla
 
-  tenk.skaliranjeObecaj(0.75)
+  tenk.skaliranjeObecaj(0.6)
 
   scena.update = () => {
     tenk.proveriTipke()
