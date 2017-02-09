@@ -19,7 +19,7 @@ Browser će se automatski osvežavati svaki put kada sačuvaš izmenu.
 
 ## TODO
 
-* potvrdi igraj ponovo kad pogine
+* ekran igraj ponovo kad pogine
 * ubaciti zvuk i eksploziju
 * ubaciti uništen tenk
 * napraviti verziju za minobacače
