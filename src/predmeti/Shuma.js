@@ -1,4 +1,4 @@
-import Predmet from 'core/Predmet'
+import Predmet from 'klase/Predmet'
 import platno from 'io/platno'
 import {vracaVodoravno} from 'akcije/granice'
 import slikaShumarak from 'slike/predmeti/priroda/shumarak.png'

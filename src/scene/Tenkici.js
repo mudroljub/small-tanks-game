@@ -1,5 +1,5 @@
-import Scena from 'core/Scena'
-import Pozadina from 'core/Pozadina'
+import Scena from 'klase/Scena'
+import Pozadina from 'klase/Pozadina'
 import Tenk from '../akteri/Tenk'
 import slikaPozadina from 'slike/pozadine/razrusen-grad-savremen.jpg'
 

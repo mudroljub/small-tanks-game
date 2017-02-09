@@ -1,5 +1,5 @@
 import {nestani} from 'akcije/granice'
-import Predmet from 'core/Predmet'
+import Predmet from 'klase/Predmet'
 
 const potisak = 50
 const gravitacija = .6

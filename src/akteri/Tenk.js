@@ -2,8 +2,8 @@
 // ui
 
 import tipke, {A, S, W, D, RAZMAK} from 'io/tipke'
-import Vreme from 'core/Vreme'
-import Predmet from 'core/Predmet'
+import Vreme from 'klase/Vreme'
+import Predmet from 'klase/Predmet'
 import Cev from './Cev'
 import Granata from './Granata'
 import slikaTenkPodnozje from 'slike/tenkovi/partizanski-tenk-bez-cevi.png'

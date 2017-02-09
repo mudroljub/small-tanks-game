@@ -18,12 +18,11 @@ module.exports = {
     alias: {
       src: path.resolve(__dirname, 'src'),
       slike: path.resolve(__dirname, 'assets/slike/'),
-      core: path.resolve(__dirname, 'game-engine/core'),
+      klase: path.resolve(__dirname, 'game-engine/klase'),
       akcije: path.resolve(__dirname, 'game-engine/akcije/'),
       io: path.resolve(__dirname, 'game-engine/io/'),
       konstante: path.resolve(__dirname, 'game-engine/konstante'),
-      utils: path.resolve(__dirname, 'game-engine/utils'),
-      zvuci: path.resolve(__dirname, 'game-assets/zvuci/')
+      utils: path.resolve(__dirname, 'game-engine/utils')
     }
   },
   module: {

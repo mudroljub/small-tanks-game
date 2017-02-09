@@ -1,4 +1,4 @@
-import Predmet from 'core/Predmet'
+import Predmet from 'klase/Predmet'
 import {podloga} from 'io/platno'
 
 const PI = Math.PI

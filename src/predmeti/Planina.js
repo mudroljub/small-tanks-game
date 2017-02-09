@@ -1,4 +1,4 @@
-import Predmet from 'core/Predmet'
+import Predmet from 'klase/Predmet'
 import platno from 'io/platno'
 import {kruzi} from 'akcije/granice'
 import oblakPlanina from 'slike/oblak.gif'
