@@ -4,6 +4,3 @@
 [submodule "game-ui"]
 	path = game-ui
 	url = git@github.com:mudroljub/game-ui.git
-[submodule "game-assets"]
-	path = game-assets
-	url = git@github.com:mudroljub/game-assets.git
