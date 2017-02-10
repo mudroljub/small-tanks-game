@@ -9,7 +9,7 @@
   "main": "main.js",
   "scripts": {
     "fullinstall": "npm install && git submodule init && git submodule update",
-    "start": "webpack-dev-server --inline --hot",
+    "start": "webpack-dev-server",
     "build": "webpack"
   },
   "devDependencies": {

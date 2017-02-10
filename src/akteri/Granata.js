@@ -1,7 +1,7 @@
 import {nestani} from 'akcije/granice'
 import Predmet from 'klase/Predmet'
 
-const potisak = 50
+const potisak = 40
 const gravitacija = .6
 
 export default class Granata extends Predmet {
