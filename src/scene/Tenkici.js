@@ -24,6 +24,7 @@ export default function sceneController() {
 
   scena.update = () => {
     tenk.proveriTipke()
+    tenk2.proveriTipke()
     tenk.update()
     tenk2.update()
   }
