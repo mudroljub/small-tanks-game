@@ -1,11 +1,12 @@
 import {nestani} from 'akcije/granice'
 import Predmet from 'klase/Predmet'
+import slikaGranata from 'slike/granata.gif'
 
 const potisak = 40
 const gravitacija = .6
 
 export default class Granata extends Predmet {
-  constructor(vlasnik, src) {
+  constructor(vlasnik, src = slikaGranata) {
     super(src)
     this.vlasnik = vlasnik
     this.z = vlasnik.z
