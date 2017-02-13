@@ -1,9 +1,11 @@
 import platno from 'io/platno'
+import UI from 'klase/UI'
 import Scena from 'klase/Scena'
 import Pozadina from 'klase/Pozadina'
 import Tenk from '../akteri/Tenk'
 import Tenk2 from '../akteri/Tenk2'
 import slikaPozadina from 'slike/pozadine/razrusen-grad-savremen.jpg'
+import sablon from './sablon.html'
 
 const nivoTla = platno.height * 0.8
 const skalarSlikeTenka = 0.6
@@ -22,7 +24,7 @@ export default function sceneController() {
   tenk.skaliranjeObecaj(skalarSlikeTenka)
   tenk2.skaliranjeObecaj(skalarSlikeTenka)
 
-  console.log(tenk.cev.ugao, tenk2.cev.ugao)
+  const ui = new UI(() => eval('`' + sablon + '`'))
 
   scena.update = () => {
     tenk.proveriTipke()
@@ -35,6 +37,7 @@ export default function sceneController() {
     pozadina.render()
     tenk.render()
     tenk2.render()
+    ui.render()
   }
 
 }

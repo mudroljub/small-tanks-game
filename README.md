@@ -18,6 +18,7 @@ npm start
 Browser će se automatski osvežavati svaki put kada sačuvaš izmenu.
 
 ## TODO
+* proveri pogodak
 * ekran igraj ponovo kad pogine
 * podesiti tipke po izboru
 * ubaciti zvuk i eksploziju

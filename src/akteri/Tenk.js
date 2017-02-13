@@ -23,6 +23,7 @@ export default class Tenk extends Predmet {
     this.granate = []
     this.praviGranate()
     this.ugaoSlike = 2 * PI
+    this.energija = 100
   }
 
   update() {
