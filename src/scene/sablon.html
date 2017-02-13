@@ -1,21 +1,25 @@
-<div class='komande bg-poluprovidno komande1'>
-  <span class='bold'>Tenk 1</span>
+<div class='interfejs bg-poluprovidno komande1'>
+  <b>Tenk 1</b>
   <br> A - levo
   <br> D - desno
   <br> W - gore
   <br> S - dole
   <br> space - puca
+  <div class="progress-wrapper">
+    <progress class="progress" value='${tenk.energija}' max='100'></progress>
+    <div class="energija">${tenk.energija}</div>
+  </div>
 </div>
 
-<div class='komande bg-poluprovidno komande2'>
+<div class='interfejs bg-poluprovidno komande2'>
   <span class='bold'>Tenk 2</span>
   <br> ← levo
   <br> → desno
   <br> ↑ gore
   <br> ↓ dole
-  <br> M - puca
+  <br> enter - puca
+  <div class="progress-wrapper">
+    <progress class="progress" value='${tenk2.energija}' max='100'></progress>
+    <div class="energija">${tenk2.energija}</div>
+  </div>
 </div>
-<div class='komande bg-poluprovidno energija1'>${tenk.energija}</div>
-<div class='komande bg-poluprovidno energija2'>${tenk2.energija}</div>
-<progress class='komande poluprovidno progres1' value='${tenk.energija}' max='100'></progress>
-<progress class='komande poluprovidno progres2' value='${tenk2.energija}' max='100'></progress>
