@@ -24,8 +24,8 @@ export default class Granata extends Predmet {
   }
 
   postavi() {
-    this.x = Math.cos(this.vlasnik.ugao) * this.vlasnik.dijagonala + this.vlasnik.x * 1.01
-    this.y = Math.sin(this.vlasnik.ugao) * this.vlasnik.dijagonala + this.vlasnik.y * 1.02
+    this.x = Math.cos(this.vlasnik.ugao) * this.vlasnik.dijagonala + this.vlasnik.x
+    this.y = Math.sin(this.vlasnik.ugao) * this.vlasnik.dijagonala + this.vlasnik.y
     this.ugao = this.vlasnik.ugao
   }
 

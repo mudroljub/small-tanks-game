@@ -5,7 +5,6 @@ import Cev from './Cev'
 import Granata from './Granata'
 import slikaTenkPodnozje from 'slike/tenkovi/jna-tenk-podnozje.png'
 import slikaTenkCev from 'slike/tenkovi/jna-tenk-cev.png'
-import slikaGranata from 'slike/granata.gif'
 
 const PI = Math.PI
 const potisak = 0.5
@@ -44,7 +43,7 @@ export default class Tenk extends Predmet {
 
   praviGranate() {
     for (let i = brojGranata - 1; i >= 0; i--) {
-      this.granate[i] = new Granata(this.cev, slikaGranata)
+      this.granate[i] = new Granata(this.cev)
     }
   }
 
