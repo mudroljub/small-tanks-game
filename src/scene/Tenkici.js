@@ -22,6 +22,8 @@ export default function sceneController() {
   tenk.skaliranjeObecaj(skalarSlikeTenka)
   tenk2.skaliranjeObecaj(skalarSlikeTenka)
 
+  console.log(tenk.cev.ugao, tenk2.cev.ugao)
+
   scena.update = () => {
     tenk.proveriTipke()
     tenk2.proveriTipke()
