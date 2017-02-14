@@ -27,11 +27,20 @@ export default function sceneController() {
 
   const ui = new UI(() => eval('`' + sablon + '`'))
 
-  scena.update = () => {
+/*
+if (predmet.energija <= 0) {
+  console.log('reset')
+}
+*/
+
+  scena.update = (dt) => {
     tenk.proveriTipke()
     tenk2.proveriTipke()
-    tenk.update()
-    tenk2.update()
+    tenk.update(dt)
+    tenk2.update(dt)
+    tenk.granate.map(granata => {
+      granata.proveriPogodak(tenk2)
+    })
   }
 
   scena.render = () => {

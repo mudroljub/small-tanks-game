@@ -7,7 +7,7 @@ import slikaTenkPodnozje from 'slike/tenkovi/jna-tenk-podnozje.png'
 import slikaTenkCev from 'slike/tenkovi/jna-tenk-cev.png'
 
 const PI = Math.PI
-const potisak = 0.5
+const potisak = 30
 const statickoTrenje = 0.3
 const kinetickoTrenje = 0.1
 const vremePunjenja = 1000
@@ -26,12 +26,12 @@ export default class Tenk extends Predmet {
     this.energija = 100
   }
 
-  update() {
+  update(dt) {
     this.trenje()
-    super.update()
-    this.cev.update()
+    super.update(dt)
+    this.cev.update(dt)
     this.granate.map((granata, i) => {
-      granata.update()
+      granata.update(dt)
       if (granata.nestala) this.granate.splice(i, 1)
     })
   }
