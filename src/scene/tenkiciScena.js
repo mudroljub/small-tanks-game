@@ -6,7 +6,7 @@ import Tenk from '../akteri/Tenk'
 import Tenk2 from '../akteri/Tenk2'
 import slikaPozadina from 'slike/pozadine/razrusen-grad-savremen.jpg'
 import sablon from './sablon.html'
-import './style.css'
+import './style.scss'
 
 const nivoTla = platno.height * 0.8
 const skalarTenka = 0.6
