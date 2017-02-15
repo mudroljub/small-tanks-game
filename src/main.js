@@ -1,10 +1,11 @@
 import {ucitaj} from 'utils'
-import sceneController from './scene/Tenkici'
-import slikaTenkPodnozje from 'slike/tenkovi/jna-tenk-podnozje.png'
-import slikaTenkCev from 'slike/tenkovi/jna-tenk-cev.png'
-import slikaGranata from 'slike/granata.gif'
+import tenkiciScena from './scene/tenkiciScena'
+window.tenkiciScena = tenkiciScena
 
-const slike = [slikaTenkPodnozje, slikaTenkCev, slikaGranata]
-// Promise.all(slike.map(ucitaj)).then(sceneController)
-window.sceneController = sceneController
-sceneController()
+const slike = [
+  'assets/slike/tenkovi/jna-tenk-podnozje.png',
+  'assets/slike/tenkovi/jna-tenk-cev.png',
+  'assets/slike/granata.gif'
+]
+
+Promise.all(slike.map(ucitaj)).then(tenkiciScena)

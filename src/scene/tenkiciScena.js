@@ -11,7 +11,7 @@ import './style.css'
 const nivoTla = platno.height * 0.8
 const skalarTenka = 0.6
 
-export default function sceneController() {
+export default function tenkiciScena() {
 
   const scena = new Scena()
   const pozadina = new Pozadina(slikaPozadina)
