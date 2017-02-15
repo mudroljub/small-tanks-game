@@ -1,4 +1,4 @@
-import {platno, ograniciPlano} from 'io/platno'
+import {platno, ograniciVisinu} from 'io/platno'
 import UI from 'klase/UI'
 import Scena from 'klase/Scena'
 import Pozadina from 'klase/Pozadina'
@@ -12,7 +12,7 @@ const skalarTenka = window.innerWidth > 1280 ? 0.6 : 0.5
 
 export default function tenkiciScena() {
 
-  ograniciPlano()
+  ograniciVisinu()
   const nivoTla = platno.height * 0.8
 
   const scena = new Scena()
