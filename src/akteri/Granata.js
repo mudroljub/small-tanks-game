@@ -13,6 +13,7 @@ export default class Granata extends Predmet {
     super(src)
     this.vlasnik = vlasnik
     this.z = vlasnik.z
+    this.nivoTla = vlasnik.y + 200
     this.ispaljena = false
     this.nestala = false
     this.granice = nestani
@@ -22,8 +23,9 @@ export default class Granata extends Predmet {
   update(dt) {
     if (!this.ispaljena) return
     this.dodajSilu(gravitacija * dt, Math.PI/2)
-    super.update(dt)
     this.azurirajUgao()
+    this.proveriTlo()
+    super.update(dt)
   }
 
   // TODO: prebaciti na Predmet
@@ -46,6 +48,10 @@ export default class Granata extends Predmet {
 
   sudara(predmet) {
     return sudara(this, predmet)
+  }
+
+  proveriTlo() {
+    if (this.y > this.nivoTla) this.nestani()
   }
 
   proveriPogodak(predmet) {

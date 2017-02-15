@@ -17,11 +17,11 @@ export default function tenkiciScena() {
   const pozadina = new Pozadina(slikaPozadina)
 
   const tenk = new Tenk()
-  tenk.polozaj(platno.width * 0.2, nivoTla)
+  tenk.y = nivoTla
   tenk.skaliranjeObecaj(skalarTenka)
 
   const tenk2 = new Tenk2()
-  tenk2.polozaj(platno.width * 0.8, nivoTla)
+  tenk2.y = nivoTla
   tenk2.skaliranjeObecaj(skalarTenka)
 
   const ui = new UI(() => eval('`' + sablon + '`'))

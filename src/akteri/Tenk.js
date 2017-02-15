@@ -16,7 +16,7 @@ export default class Tenk extends Predmet {
 
   constructor(src = slikaTenkPodnozje) {
     super(src)
-    this.x = 150
+    this.x = Math.random() * this.platno.width * 0.3
     this.potisak = 30
     this.cev = new Cev(this, slikaTenkCev)
     this.vreme = new Vreme()

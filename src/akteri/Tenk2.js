@@ -1,5 +1,4 @@
 import tipke, {LEVO, DESNO, GORE, DOLE, ENTER} from 'io/tipke'
-import platno from 'io/platno'
 import Tenk from './Tenk'
 import Cev2 from './Cev2'
 import slikaTenkPodnozje from 'slike/tenkovi/nemacki-tenk-podnozje.png'
@@ -11,7 +10,7 @@ export default class Tenk2 extends Tenk {
   constructor(src = slikaTenkPodnozje) {
     super(src)
     this.ugao = Math.PI
-    this.x = platno.width * 0.8
+    this.x = Math.random() * this.platno.width * 0.3 + this.platno.width * 0.7
     this.cev = new Cev2(this)
     this.praviGranate()
   }
