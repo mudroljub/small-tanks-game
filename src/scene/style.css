@@ -1,3 +1,25 @@
-.interfejs {
+.komande1,
+.komande2 {
   width: 135px;
+}
+
+.prozorce {
+  background-color: rgba(0,0,0, 0.8);
+}
+
+progress {
+  background: #4D5234;
+  color: #4D5234;
+}
+progress::-webkit-progress-bar {
+  background: #4D5234;
+  color: #4D5234;
+}
+progress::-webkit-progress-value {
+  background: #4D5234;
+  color: #4D5234;
+}
+progress::-moz-progress-bar {
+  background: #4D5234;
+  color: #4D5234;
 }

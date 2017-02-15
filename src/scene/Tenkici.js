@@ -9,38 +9,35 @@ import sablon from './sablon.html'
 import './style.css'
 
 const nivoTla = platno.height * 0.8
-const skalarSlikeTenka = 0.6
+const skalarTenka = 0.6
 
 export default function sceneController() {
 
   const scena = new Scena()
   const pozadina = new Pozadina(slikaPozadina)
+
   const tenk = new Tenk()
-  tenk.y = nivoTla
+  tenk.polozaj(platno.width * 0.2, nivoTla)
+  tenk.skaliranjeObecaj(skalarTenka)
 
   const tenk2 = new Tenk2()
-  tenk2.y = nivoTla
-  tenk2.x = platno.width * 0.8
-
-  tenk.skaliranjeObecaj(skalarSlikeTenka)
-  tenk2.skaliranjeObecaj(skalarSlikeTenka)
+  tenk2.polozaj(platno.width * 0.8, nivoTla)
+  tenk2.skaliranjeObecaj(skalarTenka)
 
   const ui = new UI(() => eval('`' + sablon + '`'))
 
-/*
-if (predmet.energija <= 0) {
-  console.log('reset')
-}
-*/
+  const proveriKraj = () => {
+    if (tenk.mrtav || tenk2.mrtav) scena.stop()
+  }
 
   scena.update = (dt) => {
     tenk.proveriTipke()
     tenk2.proveriTipke()
     tenk.update(dt)
     tenk2.update(dt)
-    tenk.granate.map(granata => {
-      granata.proveriPogodak(tenk2)
-    })
+    tenk.proveriPogodak(tenk2)
+    tenk2.proveriPogodak(tenk)
+    proveriKraj()
   }
 
   scena.render = () => {
@@ -49,5 +46,4 @@ if (predmet.energija <= 0) {
     tenk2.render()
     ui.render()
   }
-
 }

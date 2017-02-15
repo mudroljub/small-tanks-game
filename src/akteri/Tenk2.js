@@ -4,7 +4,6 @@ import Tenk from './Tenk'
 import Cev2 from './Cev2'
 import slikaTenkPodnozje from 'slike/tenkovi/nemacki-tenk-podnozje.png'
 
-const potisak = 0.5
 const vremePunjenja = 1000
 
 export default class Tenk2 extends Tenk {
@@ -18,14 +17,15 @@ export default class Tenk2 extends Tenk {
   }
 
   proveriTipke() {
+    if (this.mrtav) return
     if (tipke[LEVO]) {
       this.ugao = Math.PI
-      this.dodajSilu(potisak)
+      this.dodajSilu(this.potisak)
     }
 
     if (tipke[DESNO]) {
       this.ugao = 0
-      this.dodajSilu(potisak * 0.6)
+      this.dodajSilu(this.potisak * 0.6)
     }
 
     if (tipke[GORE]) {

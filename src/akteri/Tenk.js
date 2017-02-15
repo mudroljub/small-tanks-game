@@ -7,7 +7,6 @@ import slikaTenkPodnozje from 'slike/tenkovi/jna-tenk-podnozje.png'
 import slikaTenkCev from 'slike/tenkovi/jna-tenk-cev.png'
 
 const PI = Math.PI
-const potisak = 30
 const statickoTrenje = 0.3
 const kinetickoTrenje = 0.1
 const vremePunjenja = 1000
@@ -18,6 +17,7 @@ export default class Tenk extends Predmet {
   constructor(src = slikaTenkPodnozje) {
     super(src)
     this.x = 150
+    this.potisak = 30
     this.cev = new Cev(this, slikaTenkCev)
     this.vreme = new Vreme()
     this.granate = []
@@ -34,12 +34,28 @@ export default class Tenk extends Predmet {
       granata.update(dt)
       if (granata.nestala) this.granate.splice(i, 1)
     })
+    this.proveriSmrt()
   }
 
   render() {
     this.granate.map(g => g.render())
     this.cev.render()
     super.render()
+  }
+
+  skiniEnergiju(steta) {
+    this.energija -= steta
+    if (this.energija <= 0) this.energija = 0
+  }
+
+  proveriSmrt() {
+    if (this.energija <= 0) this.umri()
+  }
+
+  proveriPogodak(predmet) {
+    this.granate
+      .filter(granata => granata.ispaljena)
+      .map(granata => granata.proveriPogodak(predmet))
   }
 
   praviGranate() {
@@ -60,12 +76,13 @@ export default class Tenk extends Predmet {
   }
 
   proveriTipke() {
+    if (this.mrtav) return
     if (tipke[A]) {
-      this.dodajSilu(potisak * 0.6, PI)
+      this.dodajSilu(this.potisak * 0.6, PI)
     }
 
     if (tipke[D]) {
-      this.dodajSilu(potisak, 0)
+      this.dodajSilu(this.potisak, 0)
     }
 
     if (tipke[W]) {
@@ -85,6 +102,6 @@ export default class Tenk extends Predmet {
   }
 
   trzaj() {
-    this.dodajSilu(potisak * 2, PI)
+    this.dodajSilu(this.potisak * 2, PI)
   }
 }

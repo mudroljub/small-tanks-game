@@ -23,3 +23,11 @@
     <div class="energija">${tenk2.energija}</div>
   </div>
 </div>
+
+<div
+  class="${scena.ide ? 'hide' : ''} prozorce pointer bg-black white"
+  onclick="window.sceneController()">
+  <p class="valencia">${tenk.mrtav ? 'Tenk 1' : 'Tenk 2'} je uništen.</p>
+  <p class="avocado">${tenk.ziv ? 'Tenk 1' : 'Tenk 2'} je preživeo ovu borbu.</p>
+  <h1>Igraj opet</h1>
+</div>
