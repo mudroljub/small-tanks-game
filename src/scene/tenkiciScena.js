@@ -1,4 +1,4 @@
-import platno from 'io/platno'
+import {platno, ograniciPlano} from 'io/platno'
 import UI from 'klase/UI'
 import Scena from 'klase/Scena'
 import Pozadina from 'klase/Pozadina'
@@ -8,11 +8,11 @@ import slikaPozadina from 'slike/pozadine/razrusen-grad-savremen.jpg'
 import sablon from './sablon.html'
 import './style.scss'
 
-const skalarTenka = 0.5 // window.innerWidth > 1024 ? 0.6 : 0.5
+const skalarTenka = window.innerWidth > 1280 ? 0.6 : 0.5
 
 export default function tenkiciScena() {
 
-  if (platno.height > platno.width) platno.height = platno.width * 0.8
+  ograniciPlano()
   const nivoTla = platno.height * 0.8
 
   const scena = new Scena()

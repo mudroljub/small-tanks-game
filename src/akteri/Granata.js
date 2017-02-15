@@ -13,7 +13,7 @@ export default class Granata extends Predmet {
     super(src)
     this.vlasnik = vlasnik
     this.z = vlasnik.z
-    this.nivoTla = vlasnik.y + 200
+    this.nivoTla = this.platno.height - Math.random() * this.platno.height * 0.2
     this.ispaljena = false
     this.nestala = false
     this.granice = nestani
