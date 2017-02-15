@@ -1,12 +1,8 @@
 $verdigris: #4D5234;
 
-.komande1,
-.komande2 {
-  width: 135px;
-}
-
-.prozorce {
-  background-color: rgba(0,0,0, 0.8);
+body {
+  font-size: 100%;
+  background-color: black;
 }
 
 progress {
@@ -24,4 +20,13 @@ progress::-webkit-progress-value {
 progress::-moz-progress-bar {
   background: $verdigris;
   color: $verdigris;
+}
+
+.komande1,
+.komande2 {
+  width: 125px;
+}
+
+.prozorce {
+  background-color: rgba(0,0,0, 0.8);
 }

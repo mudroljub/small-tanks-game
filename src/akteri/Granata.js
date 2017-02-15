@@ -4,7 +4,7 @@ import Predmet from 'klase/Predmet'
 import slikaGranata from 'slike/granata.gif'
 
 const potisak = 800
-const gravitacija = 200
+const gravitacija = 220
 const silaUdara = 5
 let energijaMete = 0
 

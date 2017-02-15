@@ -8,10 +8,12 @@ import slikaPozadina from 'slike/pozadine/razrusen-grad-savremen.jpg'
 import sablon from './sablon.html'
 import './style.scss'
 
-const nivoTla = platno.height * 0.8
-const skalarTenka = 0.6
+const skalarTenka = 0.5 // window.innerWidth > 1024 ? 0.6 : 0.5
 
 export default function tenkiciScena() {
+
+  if (platno.height > platno.width) platno.height = platno.width * 0.8
+  const nivoTla = platno.height * 0.8
 
   const scena = new Scena()
   const pozadina = new Pozadina(slikaPozadina)

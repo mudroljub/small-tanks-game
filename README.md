@@ -18,9 +18,9 @@ npm start
 Browser će se automatski osvežavati svaki put kada sačuvaš izmenu.
 
 ## TODO
-* eksploziju pri sudaru
-* ekran igraj ponovo kad pogine
+* protiv kompa
+* eksploziju granate pri sudaru
+* ubaciti uništen tenk
 * podesiti tipke po izboru
 * ubaciti zvuk
-* ubaciti uništen tenk
 * napraviti verziju za minobacače
