@@ -2,6 +2,7 @@ import tipke, {LEVO, DESNO, GORE, DOLE, ENTER} from 'io/tipke'
 import Vreme from 'klase/Vreme'
 import Tenk from './Tenk'
 import Cev2 from './Cev2'
+import {gravitacija} from '../konstante'
 import slikaTenkPodnozje from 'slike/tenkovi/nemacki-tenk-podnozje.png'
 
 const napred = Math.PI
@@ -22,7 +23,12 @@ export default class Tenk2 extends Tenk {
     this.ime = 'Desni tenk'
   }
 
-  igrajSamostalno() {
+  nisani(predmet) {
+    this.cev.ugao = Math.PI + this.razmakDo(predmet) / (gravitacija * gravitacija)
+  }
+
+  igrajProtiv(predmet) {
+    this.nisani(predmet)
     this.mrdajNasumicno()
     this.pucajNasumicno()
   }

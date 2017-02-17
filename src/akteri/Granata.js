@@ -1,10 +1,10 @@
 import {nestani} from 'akcije/granice'
 import {sudara} from 'akcije/sudari'
 import Predmet from 'klase/Predmet'
+import {gravitacija} from '../konstante'
 import slikaGranata from 'slike/granata.gif'
 
 const potisak = 500
-const gravitacija = 90
 const silaUdara = 5
 let energijaMete = 0
 

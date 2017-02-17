@@ -18,12 +18,9 @@ npm start
 Browser će se automatski osvežavati svaki put kada sačuvaš izmenu.
 
 ## TODO
-* povremeno nisaniti ka igracu
-* na pocetku neprijatelj mora ugao ka igracu, zbog raznih velicina ekrana, ili fixirati platno
 * dugme za ukljucenje drugog igraca
 * eksploziju granate pri sudaru
 * ubaciti uništen tenk
 * podesiti tipke po izboru
 * ubaciti zvuk
-* gravitacija treba na scenu, ne na granatu
 * napraviti verziju za minobacače

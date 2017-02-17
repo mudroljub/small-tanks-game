@@ -8,7 +8,7 @@ import slikaPozadina from 'slike/pozadine/razrusen-grad-savremen.jpg'
 import sablon from './sablon.html'
 import './style.scss'
 
-const skalarTenka = window.innerWidth > 1280 ? 0.6 : 0.5
+const skalarTenka = window.innerWidth > 1280 ? 0.5 : 0.3
 
 export default function tenkiciScena() {
 
@@ -35,7 +35,7 @@ export default function tenkiciScena() {
   /** LOOP **/
 
   scena.customUpdate = () => {
-    tenk2.igrajSamostalno()
+    tenk2.igrajProtiv(tenk)
     tenk.proveriPogodak(tenk2)
     tenk2.proveriPogodak(tenk)
     if (tenk.mrtav || tenk2.mrtav) scena.stop()
