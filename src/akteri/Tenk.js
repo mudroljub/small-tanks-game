@@ -104,7 +104,6 @@ export default class Tenk extends Predmet {
   }
 
   pucaj() {
-    if (!this.granate.length) return
     if (this.vreme.proteklo < vremePunjenja || !this.granate.length) return
     let i = this.granate.length - 1
     while (this.granate[i].ispaljena && i > 0) i--  // trazi neispaljenu od pozadi
