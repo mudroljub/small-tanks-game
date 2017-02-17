@@ -1,9 +1,14 @@
 import tipke, {LEVO, DESNO, GORE, DOLE, ENTER} from 'io/tipke'
+import Vreme from 'klase/Vreme'
 import Tenk from './Tenk'
 import Cev2 from './Cev2'
 import slikaTenkPodnozje from 'slike/tenkovi/nemacki-tenk-podnozje.png'
 
-const vremePunjenja = 1000
+const napred = Math.PI
+const nazad = 0
+const vremeGasa = new Vreme()
+const vremeSmera = new Vreme()
+let pripremi = false
 
 export default class Tenk2 extends Tenk {
 
@@ -16,8 +21,12 @@ export default class Tenk2 extends Tenk {
   }
 
   mrdaNasumicno() {
-    // this.pucaj()
-    this.dodajSilu((Math.random() * this.potisak) - this.potisak/2)
+    this.pucaj()
+    if (vremeGasa.proteklo < 100) return
+    this.dodajSilu((Math.random() * this.potisak))
+    if (vremeSmera.proteklo < 300) return
+    this.ugao = Math.random() > 0.5 ? nazad : napred
+    // this.dodajSilu((Math.random() * this.potisak) - this.potisak/2)
     // if(this.x >= 600) {
     //   this.brzina((Math.random() * 10) - 5)
     //   this.ugao(Math.PI)
@@ -29,33 +38,21 @@ export default class Tenk2 extends Tenk {
     //   this.brzina((Math.random() * 10) - 5)
     //   this.ugao(0)
     // }
+    vremeGasa.reset()
+    vremeSmera.reset()
   }
 
   proveriTipke() {
     if (this.mrtav) return
-    if (tipke[LEVO]) {
-      this.ugao = Math.PI
-      this.dodajSilu(this.potisak)
-    }
+    if (tipke[LEVO]) this.dodajSilu(this.potisak, napred)
+    if (tipke[DESNO]) this.dodajSilu(this.potisak * 0.6, nazad)
+    if (tipke[GORE]) this.cev.nagore()
+    if (tipke[DOLE]) this.cev.nadole()
 
-    if (tipke[DESNO]) {
-      this.ugao = 0
-      this.dodajSilu(this.potisak * 0.6)
-    }
-
-    if (tipke[GORE]) {
-      this.cev.nagore()
-    }
-
-    if (tipke[DOLE]) {
-      this.cev.nadole()
-    }
-
-    if (tipke[ENTER]) {
-      if (this.vreme.proteklo < vremePunjenja || !this.granate.length) return
-      this.granate[this.granate.length-1].pucaj()
-      this.trzaj()
-      this.vreme.reset()
+    if (tipke[ENTER]) pripremi = true
+    if (pripremi && !tipke[ENTER]) {
+      this.pucaj()
+      pripremi = false
     }
   }
 

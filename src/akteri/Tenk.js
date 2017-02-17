@@ -6,7 +6,8 @@ import Granata from './Granata'
 import slikaTenkPodnozje from 'slike/tenkovi/jna-tenk-podnozje.png'
 import slikaTenkCev from 'slike/tenkovi/jna-tenk-cev.png'
 
-const PI = Math.PI
+const napred = 0
+const nazad = Math.PI
 const statickoTrenje = 0.3
 const kinetickoTrenje = 0.1
 const vremePunjenja = 1000
@@ -23,7 +24,7 @@ export default class Tenk extends Predmet {
     this.vreme = new Vreme()
     this.granate = []
     this.praviGranate()
-    this.ugaoSlike = 2 * PI
+    this.ugaoSlike = napred
     this.energija = 100
   }
 
@@ -78,25 +79,13 @@ export default class Tenk extends Predmet {
 
   proveriTipke() {
     if (this.mrtav) return
-    if (tipke[A]) {
-      this.dodajSilu(this.potisak * 0.6, PI)
-    }
+    if (tipke[A]) this.dodajSilu(this.potisak * 0.6, nazad)
+    if (tipke[D]) this.dodajSilu(this.potisak, napred)
+    if (tipke[W]) this.cev.nagore()
+    if (tipke[S]) this.cev.nadole()
 
-    if (tipke[D]) {
-      this.dodajSilu(this.potisak, 0)
-    }
-
-    if (tipke[W]) {
-      this.cev.nagore()
-    }
-
-    if (tipke[S]) {
-      this.cev.nadole()
-    }
-    // prebaciti na tipke?
-    if (tipke[RAZMAK]) {
-  		pripremi = true
-  	}
+    // prebaciti nekako na tipke?
+    if (tipke[RAZMAK]) pripremi = true
     if (pripremi && !tipke[RAZMAK]) {
       this.pucaj()
       pripremi = false
@@ -106,13 +95,14 @@ export default class Tenk extends Predmet {
   pucaj() {
     if (this.vreme.proteklo < vremePunjenja || !this.granate.length) return
     let i = this.granate.length - 1
-    while (this.granate[i].ispaljena && i > 0) i--  // trazi neispaljenu od pozadi
+    while (this.granate[i].ispaljena && i > 0) i--  // trazi neispaljenu
+    if (this.granate[i].ispaljena) return
     this.granate[i].pucaj()
     this.trzaj()
     this.vreme.reset()
   }
 
   trzaj() {
-    this.dodajSilu(this.potisak * 2, PI)
+    this.dodajSilu(this.potisak * 2, nazad)
   }
 }
