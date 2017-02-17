@@ -11,6 +11,7 @@ const statickoTrenje = 0.3
 const kinetickoTrenje = 0.1
 const vremePunjenja = 1000
 const brojGranata = 10
+let pripremi = false
 
 export default class Tenk extends Predmet {
 
@@ -92,13 +93,24 @@ export default class Tenk extends Predmet {
     if (tipke[S]) {
       this.cev.nadole()
     }
-
+    // prebaciti na tipke?
     if (tipke[RAZMAK]) {
-      if (this.vreme.proteklo < vremePunjenja || !this.granate.length) return
-      this.granate[this.granate.length-1].pucaj()
-      this.trzaj()
-      this.vreme.reset()
+  		pripremi = true
+  	}
+    if (pripremi && !tipke[RAZMAK]) {
+      this.pucaj()
+      pripremi = false
     }
+  }
+
+  pucaj() {
+    if (!this.granate.length) return
+    if (this.vreme.proteklo < vremePunjenja || !this.granate.length) return
+    let i = this.granate.length - 1
+    while (this.granate[i].ispaljena && i > 0) i--  // trazi neispaljenu od pozadi
+    this.granate[i].pucaj()
+    this.trzaj()
+    this.vreme.reset()
   }
 
   trzaj() {

@@ -3,8 +3,8 @@ import {sudara} from 'akcije/sudari'
 import Predmet from 'klase/Predmet'
 import slikaGranata from 'slike/granata.gif'
 
-const potisak = 800
-const gravitacija = 220
+const potisak = 500
+const gravitacija = 50
 const silaUdara = 5
 let energijaMete = 0
 

@@ -1,3 +1,6 @@
+// ai igrac default
+// prekidac za ukljucenje drugog igraca
+
 import {platno, ograniciVisinu} from 'io/platno'
 import UI from 'klase/UI'
 import Scena from 'klase/Scena'
@@ -38,7 +41,8 @@ export default function tenkiciScena() {
     tenk.update(dt)
     tenk2.update(dt)
     tenk.proveriPogodak(tenk2)
-    tenk2.proveriPogodak(tenk)
+    // tenk2.proveriPogodak(tenk)
+    tenk2.mrdaNasumicno()
     proveriKraj()
   }
 

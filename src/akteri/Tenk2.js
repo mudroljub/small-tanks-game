@@ -15,6 +15,22 @@ export default class Tenk2 extends Tenk {
     this.praviGranate()
   }
 
+  mrdaNasumicno() {
+    // this.pucaj()
+    this.dodajSilu((Math.random() * this.potisak) - this.potisak/2)
+    // if(this.x >= 600) {
+    //   this.brzina((Math.random() * 10) - 5)
+    //   this.ugao(Math.PI)
+    // }
+    // if(this.x >= this.platno.width - 10) {
+    //   this.x = this.platno.width - 10
+    // }
+    // if(this.x <= 450) {
+    //   this.brzina((Math.random() * 10) - 5)
+    //   this.ugao(0)
+    // }
+  }
+
   proveriTipke() {
     if (this.mrtav) return
     if (tipke[LEVO]) {
