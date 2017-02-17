@@ -8,6 +8,7 @@ const napred = Math.PI
 const nazad = 0
 const vremeGasa = new Vreme()
 const vremeSmera = new Vreme()
+const vremePucanja = new Vreme()
 let pripremi = false
 
 export default class Tenk2 extends Tenk {
@@ -18,14 +19,29 @@ export default class Tenk2 extends Tenk {
     this.x = Math.random() * this.platno.width * 0.3 + this.platno.width * 0.7
     this.cev = new Cev2(this)
     this.praviGranate()
+    this.ime = 'Desni tenk'
   }
 
-  mrdaNasumicno() {
+  igrajSamostalno() {
+    this.mrdajNasumicno()
+    this.pucajNasumicno()
+  }
+
+  pucajNasumicno() {
+    if (vremePucanja.proteklo < 2500) return
     this.pucaj()
-    if (vremeGasa.proteklo < 100) return
-    this.dodajSilu((Math.random() * this.potisak))
-    if (vremeSmera.proteklo < 300) return
-    this.ugao = Math.random() > 0.5 ? nazad : napred
+    vremePucanja.reset()
+  }
+
+  mrdajNasumicno() {
+    if (vremeGasa.proteklo > 100) {
+      this.dodajSilu((Math.random() * this.potisak))
+      vremeGasa.reset()
+    }
+    if (vremeSmera.proteklo > 300) {
+      this.ugao = Math.random() > 0.5 ? nazad : napred
+      vremeSmera.reset()
+    }
     // this.dodajSilu((Math.random() * this.potisak) - this.potisak/2)
     // if(this.x >= 600) {
     //   this.brzina((Math.random() * 10) - 5)
@@ -38,8 +54,6 @@ export default class Tenk2 extends Tenk {
     //   this.brzina((Math.random() * 10) - 5)
     //   this.ugao(0)
     // }
-    vremeGasa.reset()
-    vremeSmera.reset()
   }
 
   proveriTipke() {

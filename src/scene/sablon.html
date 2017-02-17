@@ -1,5 +1,5 @@
 <div class='interfejs bg-poluprovidno komande1'>
-  <b>Tenk 1</b>
+  <b>${tenk.ime}</b>
   <br> A - levo
   <br> D - desno
   <br> W - gore
@@ -12,7 +12,7 @@
 </div>
 
 <div class='interfejs bg-poluprovidno komande2'>
-  <span class='bold'>Tenk 2</span>
+  <span class='bold'>${tenk2.ime}</span>
   <br> ← levo
   <br> → desno
   <br> ↑ gore
@@ -27,7 +27,7 @@
 <div
   class="${scena.ide ? 'hide' : ''} prozorce pointer bg-black white"
   onclick="window.tenkiciScena()">
-  <p class="valencia">${tenk.mrtav ? 'Tenk 1' : 'Tenk 2'} je uništen.</p>
-  <p class="avocado">${tenk.ziv ? 'Tenk 1' : 'Tenk 2'} je pobedio ovu borbu.</p>
+  <p class="valencia">${tenk.mrtav ? tenk.ime : tenk2.ime} je uništen.</p>
+  <p class="avocado">${tenk.ziv ? tenk.ime : tenk2.ime} je pobedio ovu borbu.</p>
   <h1>Igraj opet</h1>
 </div>

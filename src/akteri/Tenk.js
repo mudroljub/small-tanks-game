@@ -11,7 +11,7 @@ const nazad = Math.PI
 const statickoTrenje = 0.3
 const kinetickoTrenje = 0.1
 const vremePunjenja = 1000
-const brojGranata = 10
+const brojGranata = 100
 let pripremi = false
 
 export default class Tenk extends Predmet {
@@ -26,6 +26,7 @@ export default class Tenk extends Predmet {
     this.praviGranate()
     this.ugaoSlike = napred
     this.energija = 100
+    this.ime = 'Levi tenk'
   }
 
   update(dt) {

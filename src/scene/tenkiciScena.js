@@ -12,6 +12,8 @@ const skalarTenka = window.innerWidth > 1280 ? 0.6 : 0.5
 
 export default function tenkiciScena() {
 
+  /** INIT **/
+
   ograniciVisinu()
   const nivoTla = platno.height * 0.8
 
@@ -28,25 +30,14 @@ export default function tenkiciScena() {
 
   const ui = new UI(() => eval('`' + sablon + '`'))
 
-  const proveriKraj = () => {
-    if (tenk.mrtav || tenk2.mrtav) scena.stop()
-  }
+  scena.dodaj(pozadina, tenk, tenk2, ui)
 
-  scena.update = (dt) => {
-    tenk.proveriTipke()
-    tenk2.proveriTipke()
-    tenk.update(dt)
-    tenk2.update(dt)
+  /** LOOP **/
+
+  scena.customUpdate = () => {
+    tenk2.igrajSamostalno()
     tenk.proveriPogodak(tenk2)
     tenk2.proveriPogodak(tenk)
-    tenk2.mrdaNasumicno()
-    proveriKraj()
-  }
-
-  scena.render = () => {
-    pozadina.render()
-    tenk.render()
-    tenk2.render()
-    ui.render()
+    if (tenk.mrtav || tenk2.mrtav) scena.stop()
   }
 }
