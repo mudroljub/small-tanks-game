@@ -1,6 +1,6 @@
 import {ucitaj} from 'utils'
 import tenkiciScena from './scene/tenkiciScena'
-window.tenkiciScena = tenkiciScena
+import stanje from './stanje'
 
 const slike = [
   'assets/slike/tenkovi/jna-tenk-podnozje.png',
@@ -8,8 +8,13 @@ const slike = [
   'assets/slike/granata.gif'
 ]
 
+/** INIT **/
+
 Promise.all(slike.map(ucitaj)).then(tenkiciScena)
 
+/** EVENTS **/
+
 document.addEventListener('click', e => {
+  if (e.target.id == 'dva-igraca') stanje.dvaIgraca = !stanje.dvaIgraca
   if (e.target.id == 'igraj-opet') tenkiciScena()
 })

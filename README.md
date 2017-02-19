@@ -19,6 +19,7 @@ Browser će se automatski osvežavati svaki put kada sačuvaš izmenu.
 
 ## TODO
 * tenk2 trza naopacke
+* neprijatelj promasuje na daljinu
 * ograniciti kretanje neprijatelja
 * eksploziju granate pri sudaru
 * ubaciti uništen tenk

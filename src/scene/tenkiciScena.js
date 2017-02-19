@@ -2,6 +2,7 @@ import {platno, ograniciVisinu} from 'io/platno'
 import UI from 'klase/UI'
 import Scena from 'klase/Scena'
 import Pozadina from 'klase/Pozadina'
+import stanje from '../stanje'
 import Tenk from '../akteri/Tenk'
 import Tenk2 from '../akteri/Tenk2'
 import slikaPozadina from 'slike/pozadine/razrusen-grad-savremen.jpg'
@@ -28,6 +29,7 @@ export default function tenkiciScena() {
   tenk2.y = nivoTla
   tenk2.skaliranjeObecaj(skalarTenka)
 
+  const scenaStanje = stanje  // izlgeda mora u istom opsegu zbog sablona
   const ui = new UI(() => eval('`' + sablon + '`'))
 
   scena.dodaj(pozadina, tenk, tenk2, ui)
@@ -35,15 +37,9 @@ export default function tenkiciScena() {
   /** LOOP **/
 
   scena.customUpdate = () => {
-    if (!tenk2.igrac) tenk2.igrajProtiv(tenk)
+    if (!scenaStanje.dvaIgraca) tenk2.igrajProtiv(tenk)
     tenk.proveriPogodak(tenk2)
     tenk2.proveriPogodak(tenk)
     if (tenk.mrtav || tenk2.mrtav) scena.stop()
   }
-
-  /** EVENTS **/
-
-  document.addEventListener('click', e => {
-    if (e.target.id == 'drugi-igrac') tenk2.igrac = !tenk2.igrac
-  })
 }

@@ -13,7 +13,7 @@
 
 <div class='interfejs bg-poluprovidno komande2'>
   <span class='bold'>${tenk2.ime}</span>
-  <div class="${tenk2.igrac ? '' : 'hide'}">
+  <div class="${scenaStanje.dvaIgraca ? '' : 'hide'}">
     ← levo<br>
     → desno<br>
     ↑ gore<br>
@@ -24,7 +24,7 @@
     <progress class="progress" value='${tenk2.energija}' max='100'></progress>
     <div class="energija">${tenk2.energija}</div>
   </div>
-  <button id="drugi-igrac" class="${tenk2.igrac ? 'bg-avocado' : ''} full">${tenk2.igrac ? 'Uključi<br> neprijatelja' : 'Dodaj igrača'}</button>
+  <button id="dva-igraca" class="${scenaStanje.dvaIgraca ? 'bg-avocado' : ''} full">${scenaStanje.dvaIgraca ? 'Uključi<br> neprijatelja' : 'Dodaj igrača'}</button>
 </div>
 
 <div class="${scena.ide ? 'hide' : ''} prozorce pointer bg-black">

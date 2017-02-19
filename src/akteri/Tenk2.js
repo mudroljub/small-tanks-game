@@ -21,7 +21,6 @@ export default class Tenk2 extends Tenk {
     this.cev = new Cev2(this)
     this.praviGranate()
     this.ime = 'Desni tenk'
-    this.igrac = false
   }
 
   nisani(predmet) {
