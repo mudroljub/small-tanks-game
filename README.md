@@ -18,7 +18,8 @@ npm start
 Browser će se automatski osvežavati svaki put kada sačuvaš izmenu.
 
 ## TODO
-* dugme za ukljucenje drugog igraca
+* tenk2 trza naopacke
+* ograniciti kretanje neprijatelja
 * eksploziju granate pri sudaru
 * ubaciti uništen tenk
 * podesiti tipke po izboru

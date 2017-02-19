@@ -14,7 +14,7 @@ export default class Cev2 extends Cev {
   }
 
   nagore() {
-    if (this.ugao > -Math.PI * 0.8) return
+    // if (this.ugao > -Math.PI * 0.8) return
     this.ugao += 0.01
   }
 

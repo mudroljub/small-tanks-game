@@ -9,3 +9,7 @@ const slike = [
 ]
 
 Promise.all(slike.map(ucitaj)).then(tenkiciScena)
+
+document.addEventListener('click', e => {
+  if (e.target.id == 'igraj-opet') tenkiciScena()
+})

@@ -21,6 +21,7 @@ export default class Tenk2 extends Tenk {
     this.cev = new Cev2(this)
     this.praviGranate()
     this.ime = 'Desni tenk'
+    this.igrac = false
   }
 
   nisani(predmet) {
@@ -63,7 +64,7 @@ export default class Tenk2 extends Tenk {
   }
 
   proveriTipke() {
-    if (this.mrtav) return
+    if (this.mrtav || !this.igrac) return
     if (tipke[LEVO]) this.dodajSilu(this.potisak, napred)
     if (tipke[DESNO]) this.dodajSilu(this.potisak * 0.6, nazad)
     if (tipke[GORE]) this.cev.nagore()

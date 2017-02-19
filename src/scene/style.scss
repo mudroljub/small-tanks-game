@@ -24,14 +24,23 @@ progress::-moz-progress-bar {
 
 .komande1,
 .komande2 {
-  width: 125px;
+  width: 140px;
 }
 
 .prozorce {
   background-color: rgba(0,0,0, 0.8);
 }
 
-.ukljuci-igraca {
-  display: inline-block;
-  margin-top: 10px;
+#drugi-igrac {
+  margin-top: 5px;
+  padding: 5px 10px;
+  font-size: 16px;
+}
+
+.dva-igraca {
+
+}
+
+button.bg-avocado:hover {
+  background-color: #4D5234;
 }

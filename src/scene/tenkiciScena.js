@@ -35,9 +35,15 @@ export default function tenkiciScena() {
   /** LOOP **/
 
   scena.customUpdate = () => {
-    tenk2.igrajProtiv(tenk)
+    if (!tenk2.igrac) tenk2.igrajProtiv(tenk)
     tenk.proveriPogodak(tenk2)
     tenk2.proveriPogodak(tenk)
     if (tenk.mrtav || tenk2.mrtav) scena.stop()
   }
+
+  /** EVENTS **/
+
+  document.addEventListener('click', e => {
+    if (e.target.id == 'drugi-igrac') tenk2.igrac = !tenk2.igrac
+  })
 }
