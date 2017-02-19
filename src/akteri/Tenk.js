@@ -1,4 +1,5 @@
 import tipke, {A, S, W, D, RAZMAK} from 'io/tipke'
+import platno from 'io/platno'
 import Vreme from 'klase/Vreme'
 import Predmet from 'klase/Predmet'
 import Cev from './Cev'
@@ -80,8 +81,8 @@ export default class Tenk extends Predmet {
 
   proveriTipke() {
     if (this.mrtav) return
-    if (tipke[A]) this.dodajSilu(this.potisak * 0.6, nazad)
-    if (tipke[D]) this.dodajSilu(this.potisak, napred)
+    if (tipke[A] && this.x > 0) this.dodajSilu(this.potisak * 0.6, nazad)
+    if (tipke[D] && this.x < platno.width / 2) this.dodajSilu(this.potisak, napred)
     if (tipke[W]) this.cev.nagore()
     if (tipke[S]) this.cev.nadole()
 

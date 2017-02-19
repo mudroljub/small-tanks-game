@@ -1,4 +1,3 @@
-import {nestani} from 'akcije/granice'
 import {sudara} from 'akcije/sudari'
 import Predmet from 'klase/Predmet'
 import {gravitacija} from '../konstante'
@@ -16,7 +15,6 @@ export default class Granata extends Predmet {
     this.nivoTla = this.platno.height - Math.random() * this.platno.height * 0.2
     this.ispaljena = false
     this.nestala = false
-    this.granice = nestani
     this.sakrij()
   }
 

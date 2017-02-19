@@ -57,8 +57,8 @@ export default class Tenk2 extends Tenk {
 
   proveriTipke() {
     if (this.mrtav || !stanje.dvaIgraca) return
-    if (tipke[LEVO]) this.dodajSilu(this.potisak, napred)
-    if (tipke[DESNO]) this.dodajSilu(this.potisak * 0.6, nazad)
+    if (tipke[LEVO] && this.x > platno.width / 2) this.dodajSilu(this.potisak, napred)
+    if (tipke[DESNO] && this.x < platno.width) this.dodajSilu(this.potisak * 0.6, nazad)
     if (tipke[GORE]) this.cev.nagore()
     if (tipke[DOLE]) this.cev.nadole()
 
