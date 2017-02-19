@@ -24,7 +24,7 @@ export default class Tenk2 extends Tenk {
   }
 
   nisani(predmet) {
-    this.cev.ugao = Math.PI + this.razmakDo(predmet) / (gravitacija * gravitacija)
+    this.cev.ugao = Math.PI + this.razmakDo(predmet) / (gravitacija * gravitacija * 0.8)
   }
 
   igrajProtiv(predmet) {
