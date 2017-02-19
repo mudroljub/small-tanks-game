@@ -18,7 +18,6 @@ npm start
 Browser će se automatski osvežavati svaki put kada sačuvaš izmenu.
 
 ## TODO
-* ograniciti kretanje neprijatelja
 * eksploziju granate pri sudaru
 * ubaciti uništen tenk
 * podesiti tipke po izboru

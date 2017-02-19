@@ -1,4 +1,5 @@
 import tipke, {LEVO, DESNO, GORE, DOLE, ENTER} from 'io/tipke'
+import platno from 'io/platno'
 import Vreme from 'klase/Vreme'
 import Tenk from './Tenk'
 import Cev2 from './Cev2'
@@ -41,26 +42,17 @@ export default class Tenk2 extends Tenk {
   }
 
   mrdajNasumicno() {
+    const random = Math.random()
     if (vremeGasa.proteklo > 100) {
-      this.dodajSilu((Math.random() * this.potisak))
+      this.dodajSilu((random * this.potisak))
       vremeGasa.reset()
     }
     if (vremeSmera.proteklo > 300) {
-      this.ugao = Math.random() > 0.5 ? nazad : napred
+      this.ugao = random > 0.5 ? nazad : napred
+      if (this.x > platno.width) this.ugao = napred
+      if (this.x < platno.width / 2) this.ugao = nazad
       vremeSmera.reset()
     }
-    // this.dodajSilu((Math.random() * this.potisak) - this.potisak/2)
-    // if(this.x >= 600) {
-    //   this.brzina((Math.random() * 10) - 5)
-    //   this.ugao(Math.PI)
-    // }
-    // if(this.x >= this.platno.width - 10) {
-    //   this.x = this.platno.width - 10
-    // }
-    // if(this.x <= 450) {
-    //   this.brzina((Math.random() * 10) - 5)
-    //   this.ugao(0)
-    // }
   }
 
   proveriTipke() {
