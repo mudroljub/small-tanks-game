@@ -18,10 +18,9 @@ npm start
 Browser će se automatski osvežavati svaki put kada sačuvaš izmenu.
 
 ## TODO
-* tenk2 trza naopacke
 * ograniciti kretanje neprijatelja
 * eksploziju granate pri sudaru
 * ubaciti uništen tenk
 * podesiti tipke po izboru
 * ubaciti zvuk
-* napraviti verziju za minobacače
+* refaktorisati Tenk2

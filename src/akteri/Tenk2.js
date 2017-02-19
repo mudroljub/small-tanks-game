@@ -2,6 +2,7 @@ import tipke, {LEVO, DESNO, GORE, DOLE, ENTER} from 'io/tipke'
 import Vreme from 'klase/Vreme'
 import Tenk from './Tenk'
 import Cev2 from './Cev2'
+import stanje from '../stanje'
 import {gravitacija} from '../konstante'
 import slikaTenkPodnozje from 'slike/tenkovi/nemacki-tenk-podnozje.png'
 
@@ -23,14 +24,14 @@ export default class Tenk2 extends Tenk {
     this.ime = 'Desni tenk'
   }
 
-  nisani(predmet) {
-    this.cev.ugao = Math.PI + this.razmakDo(predmet) / (gravitacija * gravitacija * 0.8)
-  }
-
-  igrajProtiv(predmet) {
+  automatuj(predmet) {
     this.nisani(predmet)
     this.mrdajNasumicno()
     this.pucajNasumicno()
+  }
+
+  nisani(predmet) {
+    this.cev.ugao = Math.PI + this.razmakDo(predmet) / (gravitacija * gravitacija * 0.8)
   }
 
   pucajNasumicno() {
@@ -63,7 +64,7 @@ export default class Tenk2 extends Tenk {
   }
 
   proveriTipke() {
-    if (this.mrtav || !this.igrac) return
+    if (this.mrtav || !stanje.dvaIgraca) return
     if (tipke[LEVO]) this.dodajSilu(this.potisak, napred)
     if (tipke[DESNO]) this.dodajSilu(this.potisak * 0.6, nazad)
     if (tipke[GORE]) this.cev.nagore()
@@ -76,4 +77,7 @@ export default class Tenk2 extends Tenk {
     }
   }
 
+  trzaj() {
+    this.dodajSilu(this.potisak * 2, nazad)
+  }
 }

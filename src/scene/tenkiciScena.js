@@ -37,7 +37,7 @@ export default function tenkiciScena() {
   /** LOOP **/
 
   scena.customUpdate = () => {
-    if (!scenaStanje.dvaIgraca) tenk2.igrajProtiv(tenk)
+    if (!scenaStanje.dvaIgraca) tenk2.automatuj(tenk)
     tenk.proveriPogodak(tenk2)
     tenk2.proveriPogodak(tenk)
     if (tenk.mrtav || tenk2.mrtav) scena.stop()
