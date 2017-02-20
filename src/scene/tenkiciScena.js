@@ -2,12 +2,10 @@ import {platno, ograniciVisinu} from 'io/platno'
 import UI from 'klase/UI'
 import Scena from 'klase/Scena'
 import Pozadina from 'klase/Pozadina'
-import Slika from 'klase/Slika'
 import stanje from '../stanje'
 import Tenk from '../akteri/Tenk'
 import Tenk2 from '../akteri/Tenk2'
 import slikaPozadina from 'slike/pozadine/razrusen-grad-savremen.jpg'
-import slikaPlamen from 'slike/plamen.gif'
 import sablon from './sablon.html'
 import './style.scss'
 
@@ -21,8 +19,6 @@ export default function tenkiciScena() {
   const nivoTla = platno.height * 0.8
 
   const pozadina = new Pozadina(slikaPozadina)
-  const plamen = new Slika(slikaPlamen)
-  plamen.skaliranjeObecaj(0.2)
 
   const tenk = new Tenk()
   tenk.y = nivoTla
@@ -59,8 +55,5 @@ export default function tenkiciScena() {
     tenk.render()
     tenk2.render()
     ui.render()
-    // plamen.x = tenk.x
-    // plamen.y = tenk.y - tenk.visina
-    // plamen.render()
   }
 }

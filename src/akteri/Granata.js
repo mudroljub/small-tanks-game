@@ -5,7 +5,7 @@ import slikaPlamen from 'slike/plamen.gif'
 import slikaGranata from 'slike/granata.gif'
 
 const potisak = 500
-const silaUdara = 5
+const silaUdara = 50
 let energijaMete = 0
 
 export default class Granata extends Predmet {
@@ -61,7 +61,7 @@ export default class Granata extends Predmet {
     this.eksplodiraj()
     this.nestani()
     energijaMete = energijaMete || predmet.energija
-    predmet.dodajSilu(silaUdara, 0)
+    predmet.dodajSilu(-silaUdara)
     predmet.skiniEnergiju(Math.round(Math.random() * energijaMete / 3))
   }
 

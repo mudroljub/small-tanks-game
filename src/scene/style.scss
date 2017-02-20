@@ -8,6 +8,7 @@ body {
 progress {
   background: $verdigris;
   color: $verdigris;
+  margin-bottom: 5px;
 }
 progress::-webkit-progress-bar {
   background: $verdigris;
@@ -32,7 +33,6 @@ progress::-moz-progress-bar {
 }
 
 #dva-igraca {
-  margin-top: 5px;
   padding: 5px 10px;
   font-size: 16px;
 }

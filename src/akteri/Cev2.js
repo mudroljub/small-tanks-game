@@ -5,7 +5,7 @@ export default class Cev2 extends Cev {
 
   constructor(vlasnik, src = slikaTenkCev) {
     super(vlasnik, src)
-    this.ugao = -Math.PI * Math.PI * 15/16
+    this.ugao = -Math.PI * Math.PI * 15 / 16
   }
 
   pratiTenk() {

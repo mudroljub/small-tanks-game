@@ -20,7 +20,7 @@ export default class Tenk2 extends Tenk {
   constructor(src = slikaTenkPodnozje) {
     super(src)
     this.ugao = Math.PI
-    this.x = this.platno.width - Math.random() * this.platno.width * 0.4
+    this.x = this.platno.width - Math.random() * this.platno.width * 0.3 - 100
     this.cev = new Cev2(this)
     this.praviGranate()
     this.ime = 'Desni tenk'
@@ -29,8 +29,8 @@ export default class Tenk2 extends Tenk {
 
   automatuj(predmet) {
     if (predmet.mrtav) return
-    this.nisani(predmet)
     this.mrdajNasumicno()
+    this.nisani(predmet)
     this.pucajNasumicno()
   }
 
@@ -40,16 +40,17 @@ export default class Tenk2 extends Tenk {
 
   mrdajNasumicno() {
     const random = Math.random()
-    if (vremeGasa.proteklo > 100) {
+    if (vremeGasa.proteklo > 70) {
       this.dodajSilu((random * this.potisak))
       vremeGasa.reset()
     }
     if (vremeSmera.proteklo > 300) {
-      this.ugao = random > 0.5 ? nazad : napred
-      if (this.x > platno.width) this.ugao = napred
-      if (this.x < platno.width / 2) this.ugao = nazad
+      this.ugao = random > 0.55 ? nazad : napred
       vremeSmera.reset()
     }
+    if (this.x > platno.width) this.x = platno.width
+    if (this.x > platno.width * 0.9) this.ugao = napred
+    if (this.x < platno.width / 2) this.ugao = nazad
   }
 
   pucajNasumicno() {
