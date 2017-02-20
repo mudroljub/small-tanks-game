@@ -20,7 +20,7 @@ export default class Tenk2 extends Tenk {
   constructor(src = slikaTenkPodnozje) {
     super(src)
     this.ugao = Math.PI
-    this.x = Math.random() * this.platno.width * 0.3 + this.platno.width * 0.7
+    this.x = this.platno.width - Math.random() * this.platno.width * 0.4
     this.cev = new Cev2(this)
     this.praviGranate()
     this.ime = 'Desni tenk'
@@ -38,12 +38,6 @@ export default class Tenk2 extends Tenk {
     this.cev.ugao = Math.PI + this.razmakDo(predmet) / (gravitacija * gravitacija * 0.8)
   }
 
-  pucajNasumicno() {
-    if (vremePucanja.proteklo < 2500) return
-    this.pucaj()
-    vremePucanja.reset()
-  }
-
   mrdajNasumicno() {
     const random = Math.random()
     if (vremeGasa.proteklo > 100) {
@@ -56,6 +50,12 @@ export default class Tenk2 extends Tenk {
       if (this.x < platno.width / 2) this.ugao = nazad
       vremeSmera.reset()
     }
+  }
+
+  pucajNasumicno() {
+    if (vremePucanja.proteklo < 2500) return
+    this.pucaj()
+    vremePucanja.reset()
   }
 
   proveriTipke() {

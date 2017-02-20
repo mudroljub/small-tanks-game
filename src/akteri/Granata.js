@@ -1,6 +1,7 @@
 import {sudara} from 'akcije/sudari'
 import Predmet from 'klase/Predmet'
 import {gravitacija} from '../konstante'
+import slikaPlamen from 'slike/plamen.gif'
 import slikaGranata from 'slike/granata.gif'
 
 const potisak = 500
@@ -15,12 +16,15 @@ export default class Granata extends Predmet {
     this.nivoTla = this.platno.height - Math.random() * this.platno.height * 0.2
     this.ispaljena = false
     this.nestala = false
+    this.plamen = new Predmet(slikaPlamen)
+    this.plamen.skaliranjeObecaj(0.4)
+    this.plamen.sakrij()
     this.sakrij()
   }
 
   update(dt) {
     if (!this.ispaljena) return
-    this.dodajSilu(gravitacija * dt, Math.PI/2)
+    this.dodajSilu(gravitacija * dt, Math.PI / 2)
     this.azurirajUgao()
     this.proveriTlo()
     super.update(dt)
@@ -54,14 +58,26 @@ export default class Granata extends Predmet {
 
   proveriPogodak(predmet) {
     if (!this.sudara(predmet)) return
-    this.nestani()  // eksplodiraj
+    this.eksplodiraj()
+    this.nestani()
     energijaMete = energijaMete || predmet.energija
     predmet.dodajSilu(silaUdara, 0)
-    predmet.skiniEnergiju(Math.round(Math.random() * energijaMete / 2))
+    predmet.skiniEnergiju(Math.round(Math.random() * energijaMete / 3))
+  }
+
+  eksplodiraj() {
+    this.plamen.x = this.x
+    this.plamen.y = this.y
+    this.plamen.pokazi()
   }
 
   nestani() {
     super.nestani()
     this.nestala = true
+  }
+
+  render() {
+    super.render()
+    this.plamen.render()
   }
 }
