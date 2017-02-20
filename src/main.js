@@ -3,10 +3,14 @@ import tenkiciScena from './scene/tenkiciScena'
 import stanje from './stanje'
 
 const slike = [
+  'assets/slike/pozadine/razrusen-grad-savremen.jpg',
   'assets/slike/tenkovi/jna-tenk-podnozje.png',
   'assets/slike/tenkovi/jna-tenk-cev.png',
-  'assets/slike/granata.gif',
-  'assets/slike/tenkovi/nemacki-tenk-unisten.png'
+  'assets/slike/tenkovi/jna-tenk-unisten.png',
+  'assets/slike/tenkovi/nemacki-tenk-podnozje.png',
+  'assets/slike/tenkovi/nemacki-tenk-cev.png',
+  'assets/slike/tenkovi/nemacki-tenk-unisten.png',
+  'assets/slike/granata.gif'
 ]
 
 /** INIT **/

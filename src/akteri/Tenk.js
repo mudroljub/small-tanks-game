@@ -6,6 +6,7 @@ import Cev from './Cev'
 import Granata from './Granata'
 import slikaTenkPodnozje from 'slike/tenkovi/jna-tenk-podnozje.png'
 import slikaTenkCev from 'slike/tenkovi/jna-tenk-cev.png'
+import unistenTenk from 'slike/tenkovi/jna-tenk-unisten.png'
 
 const napred = 0
 const nazad = Math.PI
@@ -28,6 +29,7 @@ export default class Tenk extends Predmet {
     this.ugaoSlike = napred
     this.energija = 100
     this.ime = 'Levi tenk'
+    this.slikaMrtav = unistenTenk
   }
 
   update(dt) {
