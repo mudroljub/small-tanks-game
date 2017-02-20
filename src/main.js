@@ -15,7 +15,12 @@ const slike = [
 
 /** INIT **/
 
-Promise.all(slike.map(ucitaj)).then(tenkiciScena)
+Promise.all(slike.map(ucitaj)).then(() => {
+  document.querySelector('#screen').classList.add('hide')
+  document.querySelector('#platno').classList.remove('hide')
+  document.querySelector('#ui').classList.remove('hide')
+  tenkiciScena()
+})
 
 /** EVENTS **/
 

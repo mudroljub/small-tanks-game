@@ -5,20 +5,20 @@ body {
   background-color: black;
 }
 
-progress {
+.progress {
   background: $verdigris;
   color: $verdigris;
   margin-bottom: 5px;
 }
-progress::-webkit-progress-bar {
+.progress::-webkit-progress-bar {
   background: $verdigris;
   color: $verdigris;
 }
-progress::-webkit-progress-value {
+.progress::-webkit-progress-value {
   background: $verdigris;
   color: $verdigris;
 }
-progress::-moz-progress-bar {
+.progress::-moz-progress-bar {
   background: $verdigris;
   color: $verdigris;
 }

@@ -18,6 +18,5 @@ npm start
 Browser će se automatski osvežavati svaki put kada sačuvaš izmenu.
 
 ## TODO
-* ubaciti naslovnu html sliku
 * ubaciti zvuk
 * refaktorisati (najvise Tenk2, Cev.render)
