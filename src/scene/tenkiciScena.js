@@ -18,7 +18,6 @@ export default function tenkiciScena() {
   ograniciVisinu()
   const nivoTla = platno.height * 0.8
 
-  const scena = new Scena()
   const pozadina = new Pozadina(slikaPozadina)
 
   const tenk = new Tenk()
@@ -32,6 +31,7 @@ export default function tenkiciScena() {
   const scenaStanje = stanje  // mora u istom opsegu zbog sablona?
   const ui = new UI(() => eval('`' + sablon + '`'))
 
+  const scena = new Scena()
   scena.dodaj(pozadina, tenk, tenk2, ui)
 
   /** LOOP **/

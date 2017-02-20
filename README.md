@@ -17,6 +17,6 @@ Browser će se automatski osvežavati svaki put kada sačuvaš izmenu.
 
 ## TODO
 * ubaciti uništen tenk
-* eksploziju granate pri sudaru
+* eksplozija granate pri sudaru
 * ubaciti zvuk
 * refaktorisati (najvise Tenk2, Cev.render)
