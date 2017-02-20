@@ -4,17 +4,17 @@
 <head>
   <meta charset="UTF-8">
   <title>Tenkići</title>
-  <link rel="stylesheet" href="game-ui/style.css">
 </head>
 
 <body>
 
   <div id="screen">
-    <img src="screen.png" alt="tenkici-igrica" class="full">
+    <center><progress style="position: absolute; top: 48%;"></progress></center>
+    <img src="screen.png" alt="tenkici-igrica" style="width: 100%;">
   </div>
 
-  <canvas id="platno" class="hide"></canvas>
-  <div id="ui" class="hide"></div>
+  <canvas id="platno" style="display:none;"></canvas>
+  <div id="ui" style="display:none;"></div>
 
   <script async src="dist/main.js"></script>
 </body>

@@ -1,6 +1,7 @@
 import {ucitaj} from 'utils'
-import tenkiciScena from './scene/tenkiciScena'
+import tenkiciScena from './scena/tenkiciScena'
 import stanje from './stanje'
+import '../game-ui/style.css'
 
 const slike = [
   'assets/slike/pozadine/razrusen-grad-savremen.jpg',
@@ -16,9 +17,9 @@ const slike = [
 /** INIT **/
 
 Promise.all(slike.map(ucitaj)).then(() => {
-  document.querySelector('#screen').classList.add('hide')
-  document.querySelector('#platno').classList.remove('hide')
-  document.querySelector('#ui').classList.remove('hide')
+  document.querySelector('#screen').style.display = 'none'
+  document.querySelector('#platno').style.display = 'block'
+  document.querySelector('#ui').style.display = 'block'
   tenkiciScena()
 })
 
