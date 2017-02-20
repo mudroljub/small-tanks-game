@@ -2,9 +2,9 @@
 
 # Tenkići igrica
 
-Tenkići igrica.
-
 Možeš je igrati ovde: [mudroljub.github.io/tenkici](https://mudroljub.github.io/tenkici/)
+
+Ako ne učita iz prve osveži browser.
 
 ## Razvoj
 
