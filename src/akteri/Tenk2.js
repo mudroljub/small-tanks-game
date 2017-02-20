@@ -6,6 +6,7 @@ import Cev2 from './Cev2'
 import stanje from '../stanje'
 import {gravitacija} from '../konstante'
 import slikaTenkPodnozje from 'slike/tenkovi/nemacki-tenk-podnozje.png'
+import unistenTenk from 'slike/tenkovi/nemacki-tenk-unisten.png'
 
 const napred = Math.PI
 const nazad = 0
@@ -23,9 +24,11 @@ export default class Tenk2 extends Tenk {
     this.cev = new Cev2(this)
     this.praviGranate()
     this.ime = 'Desni tenk'
+    this.slikaMrtav = unistenTenk
   }
 
   automatuj(predmet) {
+    if (predmet.mrtav) return
     this.nisani(predmet)
     this.mrdajNasumicno()
     this.pucajNasumicno()

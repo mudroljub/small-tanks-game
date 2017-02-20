@@ -7,9 +7,7 @@ Tenkići igrica.
 Prvo instaliraj [node.js](https://nodejs.org), noviju verziju. Nakon toga kloniraj repo i instaliraj zavisnosti:
 ```
 git clone
-npm install
-git submodule init
-git submodule update
+npm run fullinstall
 ```
 Da pokreneš igru u razvojnom modu ukucaj:
 ```
@@ -21,4 +19,4 @@ Browser će se automatski osvežavati svaki put kada sačuvaš izmenu.
 * ubaciti uništen tenk
 * eksploziju granate pri sudaru
 * ubaciti zvuk
-* refaktorisati (najvise Tenk2)
+* refaktorisati (najvise Tenk2, Cev.render)

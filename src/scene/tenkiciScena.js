@@ -29,7 +29,7 @@ export default function tenkiciScena() {
   tenk2.y = nivoTla
   tenk2.skaliranjeObecaj(skalarTenka)
 
-  const scenaStanje = stanje  // izlgeda mora u istom opsegu zbog sablona
+  const scenaStanje = stanje  // mora u istom opsegu zbog sablona?
   const ui = new UI(() => eval('`' + sablon + '`'))
 
   scena.dodaj(pozadina, tenk, tenk2, ui)

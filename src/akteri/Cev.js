@@ -14,15 +14,6 @@ export default class Cev extends Predmet {
     this.pratiTenk()
   }
 
-  render() {
-    podloga.save()
-    podloga.translate(this.x, this.y)
-    podloga.rotate(this.ugao)
-    podloga.scale(this.vlasnik.z, this.vlasnik.z)
-    podloga.drawImage(this.slika, 0, 0, this.sirina, this.visina)
-    podloga.restore()
-  }
-
   pratiTenk() {
     this.x = this.vlasnik.x * 1.01
     this.y = this.vlasnik.y - this.vlasnik.visina * 0.33
@@ -36,5 +27,15 @@ export default class Cev extends Predmet {
   nadole() {
     if (this.ugao > 0) return
     this.ugao += 0.01
+  }
+
+  render() {
+    if (!this.vidljiv) return
+    podloga.save()
+    podloga.translate(this.x, this.y)
+    podloga.rotate(this.ugao)
+    podloga.scale(this.vlasnik.z, this.vlasnik.z)
+    podloga.drawImage(this.slika, 0, 0, this.sirina, this.visina)
+    podloga.restore()
   }
 }

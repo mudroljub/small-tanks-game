@@ -5,7 +5,8 @@ import stanje from './stanje'
 const slike = [
   'assets/slike/tenkovi/jna-tenk-podnozje.png',
   'assets/slike/tenkovi/jna-tenk-cev.png',
-  'assets/slike/granata.gif'
+  'assets/slike/granata.gif',
+  'assets/slike/tenkovi/nemacki-tenk-unisten.png'
 ]
 
 /** INIT **/
