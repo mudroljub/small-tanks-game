@@ -1,13 +1,11 @@
 import Predmet from 'klase/Predmet'
 import {podloga} from 'io/platno'
 
-const PI = Math.PI
-
 export default class Cev extends Predmet {
   constructor(vlasnik, src) {
     super(src)
     this.vlasnik = vlasnik
-    this.ugao = -Math.PI / 16
+    this.ugao = Math.PI + Math.PI * 0.9
   }
 
   update() {
@@ -20,12 +18,12 @@ export default class Cev extends Predmet {
   }
 
   nagore() {
-    if (this.ugao < -PI * 0.2) return
+    if (this.ugao > Math.PI && this.ugao < Math.PI * 1.8) return
     this.ugao -= 0.01
   }
 
   nadole() {
-    if (this.ugao > 0) return
+    if (this.ugao < Math.PI) return
     this.ugao += 0.01
   }
 

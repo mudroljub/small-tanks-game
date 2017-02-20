@@ -16,7 +16,6 @@ npm start
 Browser će se automatski osvežavati svaki put kada sačuvaš izmenu.
 
 ## TODO
-* bug: ogranici Cev2 gore dole
 * ubaciti uništen tenk 1
 * ubaciti zvuk
 * refaktorisati (najvise Tenk2, Cev.render)
