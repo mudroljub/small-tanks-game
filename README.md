@@ -3,7 +3,7 @@
 # Tenkići igrica
 > Verzija 1.0.
 
-Slobodno je probaj ovde: [mudroljub.github.io/tenkici](https://mudroljub.github.io/tenkici/)
+Slobodno probaj ovde: [mudroljub.github.io/tenkici](https://mudroljub.github.io/tenkici/)
 
 Možeš je igrati i na fejsu: [apps.facebook.com/igrica-tenkici/](https://apps.facebook.com/igrica-tenkici/)
 
