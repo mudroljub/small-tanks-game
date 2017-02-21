@@ -6,7 +6,7 @@ Slobodno probaj: [mudroljub.github.io/tenkici](https://mudroljub.github.io/tenki
 
 Možeš je igrati i na fejsu: [apps.facebook.com/igrica-tenkici/](https://apps.facebook.com/igrica-tenkici/)
 
-P.S. Ako ne učita iz prve osveži browser.
+P.s. Ako ne učita iz prve osveži browser.
 
 ## Razvoj
 
