@@ -23,5 +23,6 @@ npm start
 Browser će se automatski osvežavati svaki put kada sačuvaš izmenu.
 
 ## TODO
+* stavi enter-igraj opet. mišem je presporo 
 * ubaciti zvuk
 * refaktorisati (najvise Tenk2, Cev.render)
