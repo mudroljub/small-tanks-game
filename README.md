@@ -22,7 +22,13 @@ npm start
 ```
 Browser će se automatski osvežavati svaki put kada sačuvaš izmenu.
 
+## Napomene
+
+U produkciji mora publicPath: './dist/'
+
 ## TODO
-* stavi enter-igraj opet. mišem je presporo 
+* stavi enter - igraj opet. mišem je presporo
+* ostaviti loop, da gori plamen nakon poraza
+* fb login
 * ubaciti zvuk
 * refaktorisati (najvise Tenk2, Cev.render)

@@ -83,6 +83,7 @@ export default class Tenk extends Predmet {
 
   proveriTipke() {
     if (this.mrtav) return
+    if (this.x < 0) this.x = 0
     if (tipke[A] && this.x > 0) this.dodajSilu(this.potisak * 0.6, nazad)
     if (tipke[D] && this.x < platno.width / 2) this.dodajSilu(this.potisak, napred)
     if (tipke[W]) this.cev.nagore()

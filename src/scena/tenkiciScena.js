@@ -5,6 +5,7 @@ import Pozadina from 'klase/Pozadina'
 import stanje from '../stanje'
 import Tenk from '../akteri/Tenk'
 import Tenk2 from '../akteri/Tenk2'
+import Plamen from '../efekti/Plamen'
 import slikaPozadina from 'slike/pozadine/razrusen-grad-savremen.jpg'
 import sablon from './sablon.html'
 import './style.scss'
@@ -33,11 +34,24 @@ export default function tenkiciScena() {
 
   const scena = new Scena()
 
-  /** LOOP **/
+  const plamen = new Plamen()
+  const plamen2 = new Plamen()
+
+  /** POMOCNO **/
 
   const proveriKraj = () => {
     if (tenk.mrtav || tenk2.mrtav) scena.stop()
   }
+
+  const proveriPlamen = (tenk, plamen) => {
+    if (tenk.energija < 20) {
+      plamen.x = tenk.x
+      plamen.y = tenk.y
+      plamen.update()
+    }
+  }
+
+  /** LOOP **/
 
   scena.update = (dt) => {
     tenk.proveriTipke()
@@ -47,6 +61,8 @@ export default function tenkiciScena() {
     tenk2.update(dt)
     tenk.proveriPogodak(tenk2)
     tenk2.proveriPogodak(tenk)
+    proveriPlamen(tenk, plamen)
+    proveriPlamen(tenk2, plamen2)
     proveriKraj()
   }
 
@@ -54,6 +70,15 @@ export default function tenkiciScena() {
     pozadina.render()
     tenk.render()
     tenk2.render()
+    if (tenk.energija < 20) plamen.render()
+    if (tenk2.energija < 20) plamen2.render()
     ui.render()
   }
 }
+
+/** EVENTS **/
+
+document.addEventListener('click', e => {
+  if (e.target.id == 'dva-igraca') stanje.dvaIgraca = !stanje.dvaIgraca
+  if (e.target.id == 'igraj-opet') tenkiciScena()
+})
