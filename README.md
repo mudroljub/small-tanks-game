@@ -3,9 +3,9 @@
 # Tenkići igrica
 > Verzija 1.0.
 
-Slobodno probaj ovde: [mudroljub.github.io/tenkici](https://mudroljub.github.io/tenkici/)
+Igraj ovde: [mudroljub.github.io/tenkici](https://mudroljub.github.io/tenkici/)
 
-Možeš je igrati i na fejsu: [apps.facebook.com/igrica-tenkici/](https://apps.facebook.com/igrica-tenkici/)
+Ima i verzija za fejs: [apps.facebook.com/igrica-tenkici/](https://apps.facebook.com/igrica-tenkici/)
 
 P.S. Ako ne učita iz prve osveži browser.
 
@@ -22,13 +22,17 @@ npm start
 ```
 Browser će se automatski osvežavati svaki put kada sačuvaš izmenu.
 
-## Napomene
+## Produkcija
 
-U produkciji mora publicPath: './dist/'
+U produkciji mora webpack publicPath: './dist/'
+
+Pre dizanja na gh-pages potrebno obrisati submodule!
+
+Za fb verziju ubaciti fb skripte u index.html
 
 ## TODO
-* stavi enter - igraj opet. mišem je presporo
-* ostaviti loop, da gori plamen nakon poraza
+* ostaviti animaciju, da gori plamen nakon poraza
+* vise neprijatelja
 * fb login
 * ubaciti zvuk
 * refaktorisati (najvise Tenk2, Cev.render)

@@ -62,7 +62,7 @@ export default class Granata extends Predmet {
     this.nestani()
     energijaMete = energijaMete || predmet.energija
     predmet.dodajSilu(-silaUdara)
-    predmet.skiniEnergiju(Math.round(Math.random() * energijaMete / 3))
+    predmet.skiniEnergiju(Math.floor(Math.random() * energijaMete / 3))
   }
 
   eksplodiraj() {
