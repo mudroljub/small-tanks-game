@@ -12,6 +12,7 @@ import './style.scss'
 
 const nivoTla = platno.height * 0.8
 const skalarTenka = window.innerWidth > 1280 ? 0.5 : 0.4
+let brojac = 0
 
 /** INIT **/
 
@@ -57,6 +58,7 @@ export default class TenkiciScena extends Scena {
   }
 
   update(dt) {
+    brojac++
     tenk.proveriTipke()
     tenk2.proveriTipke()
     if (!stanjeIgre.dvaIgraca) tenk2.automatuj(tenk)
@@ -70,11 +72,13 @@ export default class TenkiciScena extends Scena {
   }
 
   render() {
-    pozadina.render()
-    tenk.render()
-    tenk2.render()
-    if (tenk.energija < 20) plamen.render()
-    if (tenk2.energija < 20) plamen2.render()
+    if (brojac % 2 === 0) {
+      pozadina.render()
+      tenk.render()
+      tenk2.render()
+      if (tenk.energija < 20) plamen.render()
+      if (tenk2.energija < 20) plamen2.render()
+    }
     ui.render()
   }
 }
