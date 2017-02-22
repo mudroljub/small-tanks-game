@@ -31,8 +31,8 @@ Pre dizanja na gh-pages potrebno obrisati submodule!
 Za fb verziju ubaciti fb skripte u index.html
 
 ## TODO
-* ostaviti animaciju, da gori plamen nakon poraza
 * vise neprijatelja
+* srediti za chrome i druge browsere
 * fb login
 * ubaciti zvuk
 * refaktorisati (najvise Tenk2, Cev.render)

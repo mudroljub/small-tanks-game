@@ -6,7 +6,6 @@ import Cev from './Cev'
 import Granata from './Granata'
 import slikaTenkPodnozje from 'slike/tenkovi/jna-tenk-podnozje.png'
 import slikaTenkCev from 'slike/tenkovi/jna-tenk-cev.png'
-import unistenTenk from 'slike/tenkovi/jna-tenk-unisten.png'
 
 const napred = 0
 const nazad = Math.PI
@@ -26,11 +25,10 @@ export default class Tenk extends Predmet {
     this.vreme = new Vreme()
     this.ugaoSlike = napred
     this.ime = 'Levi tenk'
-    this.slikaMrtav.src = unistenTenk
-    this.reset()
+    this.init()
   }
 
-  reset() {
+  init() {
     this.x = Math.random() * this.platno.width * 0.3
     this.praviGranate()
     this.energija = 100
