@@ -3,9 +3,9 @@
 # Tenkići igrica
 > Verzija 1.0.
 
-Slobodno probaj ovde: [mudroljub.github.io/tenkici](https://mudroljub.github.io/tenkici/)
+Igraj ovde: [mudroljub.github.io/tenkici](https://mudroljub.github.io/tenkici/)
 
-Možeš je igrati i na fejsu: [apps.facebook.com/igrica-tenkici/](https://apps.facebook.com/igrica-tenkici/)
+Ima i verzija za fejs: [apps.facebook.com/igrica-tenkici/](https://apps.facebook.com/igrica-tenkici/)
 
 P.S. Ako ne učita iz prve osveži browser.
 
