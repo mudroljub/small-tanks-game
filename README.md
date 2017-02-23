@@ -1,7 +1,7 @@
 [![](screen.png)](https://mudroljub.github.io/tenkici/)
 
 # Tenkići igrica
-> verzija 1.1.
+> verzija 1.0.
 
 Igraj ovde: [mudroljub.github.io/tenkici](https://mudroljub.github.io/tenkici/)
 
@@ -43,10 +43,10 @@ Verzija 1.1.
 * ubačen plamen
 * igraj ponovo na enter
 * animacija se nastavlja nakon kraja nivoa
-* malo sredjena igrivost
 
 ## TODO
+* bug: neprijatelj nekad opali pre pocetka scene
+* prebaciti Plamen na Tenk?
 * fb login
 * ubaciti zvuk
-* refaktorisati (Tenk klasa, Tenk1 i Tenk2 naslednici, Cev.render, prebaciti Plamen na Tenk)
-* bug: neprijatelj nekad opali pre pocetka scene
+* refaktorisati (najvise Tenk2, Cev.render)
