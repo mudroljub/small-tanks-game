@@ -7,10 +7,12 @@ import stanje from '../stanje'
 import {gravitacija} from '../konstante'
 import slikaTenkPodnozje from 'slike/tenkovi/nemacki-tenk-podnozje.png'
 
+const vremePunjenja = 1500
+let pripremi = false
+
 const vremeGasa = new Vreme()
 const vremeSmera = new Vreme()
 const vremePucanja = new Vreme()
-let pripremi = false
 
 export default class Tenk2 extends Tenk {
 
@@ -33,11 +35,12 @@ export default class Tenk2 extends Tenk {
   }
 
   automatuj(predmet) {
-    if (this.mrtav || predmet.mrtav) return
+    if (this.mrtav) return
     this.mrdajNasumicno()
+    this.ograniciPolozaj()
+    if (predmet.mrtav) return
     this.nisani(predmet)
     this.pucajNasumicno()
-    this.ograniciPolozaj()
   }
 
   nisani(predmet) {
@@ -64,7 +67,7 @@ export default class Tenk2 extends Tenk {
   }
 
   pucajNasumicno() {
-    if (vremePucanja.proteklo < 2500) return
+    if (vremePucanja.proteklo < vremePunjenja) return
     this.pucaj()
     vremePucanja.reset()
   }
@@ -85,6 +88,6 @@ export default class Tenk2 extends Tenk {
   }
 
   trzaj() {
-    this.dodajSilu(this.potisak * 2, this.nazad)
+    this.dodajSilu(this.potisak, this.nazad)
   }
 }
