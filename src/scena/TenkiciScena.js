@@ -1,5 +1,5 @@
 import {platno, ograniciVisinu} from 'io/platno'
-import tipke from 'io/tipke'
+import {tipke, tipkeReset, ENTER} from 'io/tipke'
 import Scena from 'klase/Scena'
 import UI from 'klase/UI'
 import Pozadina from 'klase/Pozadina'
@@ -13,6 +13,7 @@ import './style.scss'
 
 const nivoTla = platno.height * 0.8
 const skalarTenka = window.innerWidth > 1280 ? 0.5 : 0.4
+const zapaljivostTenka = 20
 let brojac = 0
 let gotovo = false
 
@@ -29,7 +30,7 @@ const ui = new UI(() => eval('`' + sablon + '`'))
 /** POMOCNO **/
 
 const proveriPlamen = (tenk, plamen) => {
-  if (tenk.energija > 20) return
+  if (tenk.energija > zapaljivostTenka) return
   plamen.x = tenk.x
   plamen.y = tenk.y
   plamen.update()
@@ -40,7 +41,7 @@ const proveriPlamen = (tenk, plamen) => {
 export default class TenkiciScena extends Scena {
 
   static init() {
-    tipke.length = 0
+    tipkeReset()
     ograniciVisinu()
     tenk.init()
     tenk2.init()
@@ -57,7 +58,6 @@ export default class TenkiciScena extends Scena {
   }
 
   update(dt) {
-    brojac++
     if (!gotovo) {
       tenk.proveriTipke()
       tenk2.proveriTipke()
@@ -70,6 +70,8 @@ export default class TenkiciScena extends Scena {
     proveriPlamen(tenk, plamen)
     proveriPlamen(tenk2, plamen2)
     if (tenk.mrtav || tenk2.mrtav) gotovo = true
+    if (gotovo && tipke[ENTER]) TenkiciScena.init()
+    brojac++
   }
 
   render() {
@@ -77,8 +79,8 @@ export default class TenkiciScena extends Scena {
     pozadina.render()
     tenk.render()
     tenk2.render()
-    if (tenk.energija < 20) plamen.render()
-    if (tenk2.energija < 20) plamen2.render()
+    if (tenk.energija < zapaljivostTenka) plamen.render()
+    if (tenk2.energija < zapaljivostTenka) plamen2.render()
     ui.render()
   }
 }
@@ -88,8 +90,4 @@ export default class TenkiciScena extends Scena {
 document.addEventListener('click', e => {
   if (e.target.id == 'dva-igraca') stanje.dvaIgraca = !stanje.dvaIgraca
   if (e.target.id == 'igraj-opet') TenkiciScena.init()
-})
-
-document.addEventListener('keydown', e => {
-  if (gotovo && e.keyCode == 13) TenkiciScena.init()
 })

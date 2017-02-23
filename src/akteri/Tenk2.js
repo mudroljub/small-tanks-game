@@ -26,6 +26,7 @@ export default class Tenk2 extends Tenk {
   init() {
     this.ugao = Math.PI
     this.x = this.platno.width - Math.random() * this.platno.width * 0.3 - 100
+    this.granate = []
     this.praviGranate()
     this.energija = 100
     this.ziv = true

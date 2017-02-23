@@ -19,7 +19,6 @@ export default class Tenk extends Predmet {
     super(src)
     this.napred = 0
     this.nazad = Math.PI
-    this.granate = []
     this.potisak = 30
     this.cev = new Cev(this, slikaTenkCev)
     this.vreme = new Vreme()
@@ -30,6 +29,7 @@ export default class Tenk extends Predmet {
 
   init() {
     this.x = Math.random() * this.platno.width * 0.3
+    this.granate = []
     this.praviGranate()
     this.energija = 100
     this.ziv = true

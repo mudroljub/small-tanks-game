@@ -38,7 +38,8 @@ Verzija 1.1.
 * animacija se nastavlja nakon kraja nivoa
 
 ## TODO
-* bug: neprijatelj uvek opali pre pocetka scene
+* bug: neprijatelj nekad opali pre pocetka scene
+* prebaciti Plamen na Tenk?
 * fb login
 * ubaciti zvuk
 * refaktorisati (najvise Tenk2, Cev.render)
