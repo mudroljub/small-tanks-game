@@ -3,6 +3,8 @@
 # Tenkići igrica
 > verzija 1.0.
 
+Jednostavna igrica sa dva tenkića, napravljena u HTML5 canvasu. Možeš igrati protiv kompa ili protiv igrača.
+
 Igraj ovde: [mudroljub.github.io/tenkici](https://mudroljub.github.io/tenkici/)
 
 Ima i verzija za fejs: [apps.facebook.com/igrica-tenkici/](https://apps.facebook.com/igrica-tenkici/)
