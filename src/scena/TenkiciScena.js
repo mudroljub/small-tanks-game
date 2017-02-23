@@ -57,9 +57,13 @@ export default class TenkiciScena extends Scena {
     super.start()
   }
 
-  update(dt) {
+  obradiUnose() {
     tenk.proveriTipke()
-    tenk2.proveriTipke()
+    if (stanje.dvaIgraca) tenk2.proveriTipke()
+    if (gotovo && tipke[ENTER]) TenkiciScena.init()
+  }
+
+  update(dt) {
     if (!stanjeIgre.dvaIgraca) tenk2.automatuj(tenk)
     if (!gotovo) {
       tenk.proveriPogodak(tenk2)
@@ -70,7 +74,6 @@ export default class TenkiciScena extends Scena {
     proveriPlamen(tenk, plamen)
     proveriPlamen(tenk2, plamen2)
     if (tenk.mrtav || tenk2.mrtav) gotovo = true
-    if (gotovo && tipke[ENTER]) TenkiciScena.init()
     brojac++
   }
 

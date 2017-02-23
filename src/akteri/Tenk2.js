@@ -3,11 +3,10 @@ import platno from 'io/platno'
 import Vreme from 'klase/Vreme'
 import Tenk from './Tenk'
 import Cev2 from './Cev2'
-import stanje from '../stanje'
 import {gravitacija} from '../konstante'
 import slikaTenkPodnozje from 'slike/tenkovi/nemacki-tenk-podnozje.png'
 
-const vremePunjenja = 1500
+const pauzaPucanja = 2200 // samo za AI
 let pripremi = false
 
 const vremeGasa = new Vreme()
@@ -67,24 +66,32 @@ export default class Tenk2 extends Tenk {
   }
 
   pucajNasumicno() {
-    if (vremePucanja.proteklo < vremePunjenja) return
+    if (vremePucanja.proteklo < pauzaPucanja) return
     this.pucaj()
     vremePucanja.reset()
   }
 
   proveriTipke() {
-    if (this.mrtav || !stanje.dvaIgraca) return
-    if (tipke[LEVO] && this.x > platno.width / 2) this.dodajSilu(this.potisak, this.napred)
-    if (tipke[DESNO] && this.x < platno.width) this.dodajSilu(this.potisak * 0.6, this.nazad)
+    if (this.mrtav) return
+    if (tipke[LEVO]) this.idiNapred()
+    if (tipke[DESNO]) this.idiNazad()
     if (tipke[GORE]) this.cev.nagore()
     if (tipke[DOLE]) this.cev.nadole()
-
     if (tipke[ENTER]) pripremi = true
+    // ako je pusten ENTER
     if (pripremi && !tipke[ENTER]) {
       this.pucaj()
       pripremi = false
     }
     this.ograniciPolozaj()
+  }
+
+  idiNapred() {
+    if (this.x > platno.width / 2) this.dodajSilu(this.potisak, this.napred)
+  }
+
+  idiNazad() {
+    if (this.x < platno.width) this.dodajSilu(this.potisak * 0.6, this.nazad)
   }
 
   trzaj() {

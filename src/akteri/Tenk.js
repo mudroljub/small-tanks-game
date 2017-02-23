@@ -9,7 +9,7 @@ import slikaTenkCev from 'slike/tenkovi/jna-tenk-cev.png'
 
 const statickoTrenje = 0.3
 const kinetickoTrenje = 0.1
-const vremePunjenja = 1000
+const vremePunjenja = 1800
 const brojGranata = 100
 let pripremi = false
 
