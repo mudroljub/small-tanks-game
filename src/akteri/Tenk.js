@@ -7,8 +7,6 @@ import Granata from './Granata'
 import slikaTenkPodnozje from 'slike/tenkovi/jna-tenk-podnozje.png'
 import slikaTenkCev from 'slike/tenkovi/jna-tenk-cev.png'
 
-const napred = 0
-const nazad = Math.PI
 const statickoTrenje = 0.3
 const kinetickoTrenje = 0.1
 const vremePunjenja = 1000
@@ -19,11 +17,13 @@ export default class Tenk extends Predmet {
 
   constructor(src = slikaTenkPodnozje) {
     super(src)
+    this.napred = 0
+    this.nazad = Math.PI
     this.granate = []
     this.potisak = 30
     this.cev = new Cev(this, slikaTenkCev)
     this.vreme = new Vreme()
-    this.ugaoSlike = napred
+    this.ugaoSlike = this.napred
     this.ime = 'Levi tenk'
     this.init()
   }
@@ -88,8 +88,8 @@ export default class Tenk extends Predmet {
     if (this.mrtav) return
     this.ograniciPolozaj()
 
-    if (tipke[A] && this.x > 0) this.dodajSilu(this.potisak * 0.6, nazad)
-    if (tipke[D] && this.x < platno.width / 2) this.dodajSilu(this.potisak, napred)
+    if (tipke[A] && this.x > 0) this.dodajSilu(this.potisak * 0.6, this.nazad)
+    if (tipke[D] && this.x < platno.width / 2) this.dodajSilu(this.potisak, this.napred)
     if (tipke[W]) this.cev.nagore()
     if (tipke[S]) this.cev.nadole()
 
@@ -117,6 +117,6 @@ export default class Tenk extends Predmet {
   }
 
   trzaj() {
-    this.dodajSilu(this.potisak * 2, nazad)
+    this.dodajSilu(this.potisak * 2, this.nazad)
   }
 }

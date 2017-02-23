@@ -38,7 +38,7 @@ Verzija 1.1.
 * animacija se nastavlja nakon kraja nivoa
 
 ## TODO
-* srediti za chrome i druge browsere
+* bug: neprijatelj uvek opali pre pocetka scene
 * fb login
 * ubaciti zvuk
 * refaktorisati (najvise Tenk2, Cev.render)

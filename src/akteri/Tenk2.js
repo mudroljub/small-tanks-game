@@ -7,8 +7,6 @@ import stanje from '../stanje'
 import {gravitacija} from '../konstante'
 import slikaTenkPodnozje from 'slike/tenkovi/nemacki-tenk-podnozje.png'
 
-const napred = Math.PI
-const nazad = 0
 const vremeGasa = new Vreme()
 const vremeSmera = new Vreme()
 const vremePucanja = new Vreme()
@@ -18,6 +16,8 @@ export default class Tenk2 extends Tenk {
 
   constructor(src = slikaTenkPodnozje) {
     super(src)
+    this.napred = Math.PI
+    this.nazad = 0
     this.cev = new Cev2(this)
     this.ime = 'Desni tenk'
     this.init()
@@ -50,11 +50,11 @@ export default class Tenk2 extends Tenk {
       vremeGasa.reset()
     }
     if (vremeSmera.proteklo > 300) {
-      this.ugao = random > 0.55 ? nazad : napred
+      this.ugao = random > 0.55 ? this.nazad : this.napred
       vremeSmera.reset()
     }
-    if (this.x > platno.width * 0.9) this.ugao = napred
-    if (this.x < platno.width / 2) this.ugao = nazad
+    if (this.x > platno.width * 0.9) this.ugao = this.napred
+    if (this.x < platno.width / 2) this.ugao = this.nazad
   }
 
   ograniciPolozaj() {
@@ -70,8 +70,8 @@ export default class Tenk2 extends Tenk {
 
   proveriTipke() {
     if (this.mrtav || !stanje.dvaIgraca) return
-    if (tipke[LEVO] && this.x > platno.width / 2) this.dodajSilu(this.potisak, napred)
-    if (tipke[DESNO] && this.x < platno.width) this.dodajSilu(this.potisak * 0.6, nazad)
+    if (tipke[LEVO] && this.x > platno.width / 2) this.dodajSilu(this.potisak, this.napred)
+    if (tipke[DESNO] && this.x < platno.width) this.dodajSilu(this.potisak * 0.6, this.nazad)
     if (tipke[GORE]) this.cev.nagore()
     if (tipke[DOLE]) this.cev.nadole()
 
@@ -84,6 +84,6 @@ export default class Tenk2 extends Tenk {
   }
 
   trzaj() {
-    this.dodajSilu(this.potisak * 2, nazad)
+    this.dodajSilu(this.potisak * 2, this.nazad)
   }
 }
