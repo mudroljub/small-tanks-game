@@ -1,7 +1,7 @@
 [![](screen.png)](https://mudroljub.github.io/tenkici/)
 
 # Tenkići igrica
-> verzija 1.0.
+> verzija 1.1.
 
 Jednostavna igrica sa dva tenkića, napravljena u HTML5 canvasu. Možeš igrati protiv kompa ili protiv igrača.
 
