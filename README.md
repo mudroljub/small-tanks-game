@@ -13,9 +13,16 @@ P.S. Ako ne učita iz prve osveži browser.
 
 Prvo instaliraj [node.js](https://nodejs.org), noviju verziju. Nakon toga kloniraj repo i instaliraj zavisnosti:
 ```
-git clone
+npm install
+git submodule init
+git submodule update
+```
+
+ili samo
+```
 npm run fullinstall
 ```
+
 Da pokreneš igru u razvojnom modu ukucaj:
 ```
 npm start
