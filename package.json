@@ -8,7 +8,7 @@
   },
   "main": "main.js",
   "scripts": {
-    "fullinstall": "npm install && git submodule init && git submodule update",
+    "fullinstall": "git submodule init && git submodule update && npm install",
     "start": "webpack-dev-server",
     "build": "webpack -p"
   },

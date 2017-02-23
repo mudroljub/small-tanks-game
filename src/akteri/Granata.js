@@ -5,8 +5,8 @@ import slikaPlamen from 'slike/plamen.gif'
 import slikaGranata from 'slike/granata.gif'
 
 const potisak = 500
-const silaUdara = 50
-let energijaMete = 0
+const silaUdara = 15
+const trajanjeEksplozije = 150
 
 export default class Granata extends Predmet {
   constructor(vlasnik, src = slikaGranata) {
@@ -59,10 +59,9 @@ export default class Granata extends Predmet {
   proveriPogodak(predmet) {
     if (!this.sudara(predmet)) return
     this.eksplodiraj()
-    this.nestani()
-    energijaMete = energijaMete || predmet.energija
-    predmet.dodajSilu(-silaUdara)
-    predmet.skiniEnergiju(Math.round(Math.random() * energijaMete / 3))
+    setTimeout(() => this.nestani(), trajanjeEksplozije)
+    predmet.dodajSilu(silaUdara, predmet.nazad)
+    predmet.skiniEnergiju(Math.ceil(Math.random() * 2))
   }
 
   eksplodiraj() {

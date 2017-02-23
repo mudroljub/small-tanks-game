@@ -6,13 +6,10 @@ import Cev from './Cev'
 import Granata from './Granata'
 import slikaTenkPodnozje from 'slike/tenkovi/jna-tenk-podnozje.png'
 import slikaTenkCev from 'slike/tenkovi/jna-tenk-cev.png'
-import unistenTenk from 'slike/tenkovi/jna-tenk-unisten.png'
 
-const napred = 0
-const nazad = Math.PI
 const statickoTrenje = 0.3
 const kinetickoTrenje = 0.1
-const vremePunjenja = 1000
+const vremePunjenja = 1800
 const brojGranata = 100
 let pripremi = false
 
@@ -20,16 +17,22 @@ export default class Tenk extends Predmet {
 
   constructor(src = slikaTenkPodnozje) {
     super(src)
-    this.x = Math.random() * this.platno.width * 0.3
+    this.napred = 0
+    this.nazad = Math.PI
     this.potisak = 30
     this.cev = new Cev(this, slikaTenkCev)
     this.vreme = new Vreme()
+    this.ugaoSlike = this.napred
+    this.ime = 'Levi tenk'
+    this.init()
+  }
+
+  init() {
+    this.x = Math.random() * this.platno.width * 0.3
     this.granate = []
     this.praviGranate()
-    this.ugaoSlike = napred
     this.energija = 100
-    this.ime = 'Levi tenk'
-    this.slikaMrtav = unistenTenk
+    this.ziv = true
   }
 
   update(dt) {
@@ -83,9 +86,10 @@ export default class Tenk extends Predmet {
 
   proveriTipke() {
     if (this.mrtav) return
-    if (this.x < 0) this.x = 0
-    if (tipke[A] && this.x > 0) this.dodajSilu(this.potisak * 0.6, nazad)
-    if (tipke[D] && this.x < platno.width / 2) this.dodajSilu(this.potisak, napred)
+    this.ograniciPolozaj()
+
+    if (tipke[A] && this.x > 0) this.dodajSilu(this.potisak * 0.6, this.nazad)
+    if (tipke[D] && this.x < platno.width / 2) this.dodajSilu(this.potisak, this.napred)
     if (tipke[W]) this.cev.nagore()
     if (tipke[S]) this.cev.nadole()
 
@@ -95,6 +99,11 @@ export default class Tenk extends Predmet {
       this.pucaj()
       pripremi = false
     }
+  }
+
+  ograniciPolozaj() {
+    if (this.x < 0) this.x = 0
+    if (this.x > platno.width / 2) this.x = platno.width / 2
   }
 
   pucaj() {
@@ -108,6 +117,6 @@ export default class Tenk extends Predmet {
   }
 
   trzaj() {
-    this.dodajSilu(this.potisak * 2, nazad)
+    this.dodajSilu(this.potisak, this.nazad)
   }
 }
