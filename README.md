@@ -1,15 +1,16 @@
 [![](screen.png)](https://mudroljub.github.io/small-tanks-game/)
 
-# Tenkići igrica
-> verzija 1.1.
+# Small tanks game
 
-Jednostavna igrica sa dva tenkića, napravljena u HTML5 canvasu. Možeš igrati protiv kompa ili protiv igrača.
+> version 1.1.
 
-Igraj ovde: [mudroljub.github.io/small-tanks-game](https://mudroljub.github.io/small-tanks-game/)
+Simple tank duel game. You can play against computer or against other player.
+
+Play here: [mudroljub.github.io/small-tanks-game](https://mudroljub.github.io/small-tanks-game/)
 
 P.S. Ako ne učita iz prve osveži browser.
 
-## Razvoj
+## Develop
 
 Prvo instaliraj [node.js](https://nodejs.org), noviju verziju. Nakon toga kloniraj repo i instaliraj zavisnosti:
 ```
