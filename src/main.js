@@ -1,7 +1,4 @@
-import TenkiciScena from './scena/TenkiciScena'
-import '../game-ui/style.css'
-
-/** INIT **/
+import TenkiciScena from './scena/TenkiciScena.js'
 
 const scena = new TenkiciScena()
 scena.start()

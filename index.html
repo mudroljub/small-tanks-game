@@ -5,26 +5,10 @@
   <meta charset="UTF-8">
   <title>Tenkići</title>
   <meta name="description" content="Tenkići igrica">
+  <link rel="stylesheet" href="/game-ui/style.css">
 </head>
 
 <body>
-  <!-- <script>
-    window.fbAsyncInit = function() {
-      FB.init({
-        appId      : '1766474963680117',
-        xfbml      : true,
-        version    : 'v2.8'
-      });
-    };
-
-    (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "//connect.facebook.net/en_US/sdk.js";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
-  </script> -->
 
   <div id="screen">
     <center><progress style="position: absolute; top: 48%;"></progress></center>
@@ -35,7 +19,7 @@
   <canvas id="platno" style="display:none;"></canvas>
   <div id="ui" style="display:none;"></div>
 
-  <script async src="dist/main.js"></script>
+  <script async src="src/main.js" type="module"></script>
 </body>
 
 </html>

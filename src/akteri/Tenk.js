@@ -1,11 +1,9 @@
-import tipke, {A, S, W, D, RAZMAK} from 'io/tipke'
-import platno from 'io/platno'
-import Vreme from 'klase/Vreme'
-import Predmet from 'klase/Predmet'
-import Cev from './Cev'
-import Granata from './Granata'
-import slikaTenkPodnozje from 'slike/tenkovi/jna-tenk-podnozje.png'
-import slikaTenkCev from 'slike/tenkovi/jna-tenk-cev.png'
+import tipke, {A, S, W, D, RAZMAK} from '/game-engine/io/tipke.js'
+import platno from '/game-engine/io/platno.js'
+import Vreme from '/game-engine/klase/Vreme.js'
+import Predmet from '/game-engine/klase/Predmet.js'
+import Cev from './Cev.js'
+import Granata from './Granata.js'
 
 const statickoTrenje = 0.3
 const kinetickoTrenje = 0.1
@@ -15,12 +13,12 @@ let pripremi = false
 
 export default class Tenk extends Predmet {
 
-  constructor(src = slikaTenkPodnozje) {
+  constructor(src = '/assets/slike/tenkovi/jna-tenk-podnozje.png') {
     super(src)
     this.napred = 0
     this.nazad = Math.PI
     this.potisak = 30
-    this.cev = new Cev(this, slikaTenkCev)
+    this.cev = new Cev(this, '/assets/slike/tenkovi/jna-tenk-cev.png')
     this.vreme = new Vreme()
     this.ugaoSlike = this.napred
     this.ime = 'Levi tenk'

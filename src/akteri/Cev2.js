@@ -1,9 +1,8 @@
-import Cev from './Cev'
-import slikaTenkCev from 'slike/tenkovi/nemacki-tenk-cev.png'
+import Cev from './Cev.js'
 
 export default class Cev2 extends Cev {
 
-  constructor(vlasnik, src = slikaTenkCev) {
+  constructor(vlasnik, src = '/assets/slike/tenkovi/nemacki-tenk-cev.png') {
     super(vlasnik, src)
     this.ugao = Math.PI * 1.1
   }

@@ -1,11 +1,10 @@
-import tipke, {LEVO, DESNO, GORE, DOLE, ENTER} from 'io/tipke'
-import platno from 'io/platno'
-import Vreme from 'klase/Vreme'
-import Tenk from './Tenk'
-import Cev2 from './Cev2'
-import stanje from '../stanje'
-import {gravitacija} from '../konstante'
-import slikaTenkPodnozje from 'slike/tenkovi/nemacki-tenk-podnozje.png'
+import tipke, {LEVO, DESNO, GORE, DOLE, ENTER} from '/game-engine/io/tipke.js'
+import platno from '/game-engine/io/platno.js'
+import Vreme from '/game-engine/klase/Vreme.js'
+import Tenk from './Tenk.js'
+import Cev2 from './Cev2.js'
+import stanje from '../stanje.js'
+import {gravitacija} from '../konstante.js'
 
 const vremePunjenja = 1500
 let pripremi = false
@@ -16,7 +15,7 @@ const vremePucanja = new Vreme()
 
 export default class Tenk2 extends Tenk {
 
-  constructor(src = slikaTenkPodnozje) {
+  constructor(src = '/assets/slike/tenkovi/nemacki-tenk-podnozje.png') {
     super(src)
     this.napred = Math.PI
     this.nazad = 0

@@ -1,22 +1,20 @@
-import {sudara} from 'akcije/sudari'
-import Predmet from 'klase/Predmet'
-import {gravitacija} from '../konstante'
-import slikaPlamen from 'slike/plamen.gif'
-import slikaGranata from 'slike/granata.gif'
+import {sudara} from '/game-engine/akcije/sudari.js'
+import Predmet from '/game-engine/klase/Predmet.js'
+import {gravitacija} from '../konstante.js'
 
 const potisak = 500
 const silaUdara = 15
 const trajanjeEksplozije = 150
 
 export default class Granata extends Predmet {
-  constructor(vlasnik, src = slikaGranata) {
+  constructor(vlasnik, src = '/assets/slike/granata.gif') {
     super(src)
     this.vlasnik = vlasnik
     this.z = vlasnik.z
     this.nivoTla = this.platno.height - Math.random() * this.platno.height * 0.2
     this.ispaljena = false
     this.nestala = false
-    this.plamen = new Predmet(slikaPlamen)
+    this.plamen = new Predmet('/assets/slike/plamen.gif')
     this.plamen.skaliranjeObecaj(0.4)
     this.plamen.sakrij()
     this.sakrij()

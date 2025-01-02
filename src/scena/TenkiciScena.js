@@ -1,15 +1,13 @@
-import {platno, ograniciVisinu} from 'io/platno'
-import {tipke, tipkeReset, ENTER} from 'io/tipke'
-import Scena from 'klase/Scena'
-import UI from 'klase/UI'
-import Pozadina from 'klase/Pozadina'
-import stanje from '../stanje'
-import Tenk from '../akteri/Tenk'
-import Tenk2 from '../akteri/Tenk2'
-import Plamen from '../efekti/Plamen'
-import slikaPozadina from 'slike/pozadine/razrusen-grad-savremen.jpg'
-import sablon from './sablon.html'
-import './style.scss'
+import {platno, ograniciVisinu} from '/game-engine/io/platno.js'
+import {tipke, tipkeReset, ENTER} from '/game-engine/io/tipke.js'
+import Scena from '/game-engine/klase/Scena.js'
+import UI from '/game-engine/klase/UI.js'
+import Pozadina from '/game-engine/klase/Pozadina.js'
+import stanje from '../stanje.js'
+import Tenk from '../akteri/Tenk.js'
+import Tenk2 from '../akteri/Tenk2.js'
+import Plamen from '../efekti/Plamen.js'
+// import './style.scss'
 
 const nivoTla = platno.height * 0.8
 const skalarTenka = window.innerWidth > 1280 ? 0.5 : 0.4
@@ -19,12 +17,49 @@ let gotovo = false
 
 /** INIT **/
 
-const pozadina = new Pozadina(slikaPozadina)
+const pozadina = new Pozadina('/assets/slike/pozadine/razrusen-grad-savremen.jpg')
 const tenk = new Tenk()
 const tenk2 = new Tenk2()
 const stanjeIgre = stanje  // mora u istom opsegu zbog sablona?
 const plamen = new Plamen()
 const plamen2 = new Plamen()
+
+const sablon = `
+  <div class='interfejs bg-poluprovidno komande1'>
+    <b>${tenk.ime}</b>
+    <div class="progress-wrapper">
+      <progress class="progress" value='${tenk.energija}' max='100'></progress>
+      <div class="energija">${tenk.energija}</div>
+    </div>
+      A - levo<br>
+      D - desno<br>
+      W - gore<br>
+      S - dole<br>
+      space - puca
+  </div>
+
+  <div class='interfejs bg-poluprovidno komande2'>
+    <span class='bold'>${tenk2.ime}</span>
+    <div class="progress-wrapper">
+      <progress class="progress" value='${tenk2.energija}' max='100'></progress>
+      <div class="energija">${tenk2.energija}</div>
+    </div>
+    <div class="${stanjeIgre.dvaIgraca ? '' : 'hide'}">
+      ← levo<br>
+      → desno<br>
+      ↑ gore<br>
+      ↓ dole<br>
+      enter - puca
+    </div>
+    <button id="dva-igraca" class="${stanjeIgre.dvaIgraca ? 'bg-avocado' : ''} full">${stanjeIgre.dvaIgraca ? 'Uključi<br> neprijatelja' : 'Dodaj igrača'}</button>
+  </div>
+
+  <div class="${!gotovo ? 'hide' : ''} prozorce pointer bg-black">
+    <p class="avocado">${tenk.mrtav ? tenk.ime : tenk2.ime} je uništen.</p>
+    <p class="valencia">${tenk.ziv ? tenk.ime : tenk2.ime} je pobedio ovu borbu.</p>
+    <h2><button id="igraj-opet" class="white">Igraj opet</button></h2>
+  </div>
+`
 const ui = new UI(() => eval('`' + sablon + '`'))
 
 /** POMOCNO **/
