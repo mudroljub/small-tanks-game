@@ -24,7 +24,7 @@ const stanjeIgre = stanje  // mora u istom opsegu zbog sablona?
 const plamen = new Plamen()
 const plamen2 = new Plamen()
 
-const sablon = `
+const sablon = () => `
   <div class='interfejs bg-poluprovidno komande1'>
     <b>${tenk.ime}</b>
     <div class="progress-wrapper">
@@ -60,7 +60,8 @@ const sablon = `
     <h2><button id="igraj-opet" class="white">Igraj opet</button></h2>
   </div>
 `
-const ui = new UI(() => eval('`' + sablon + '`'))
+
+const ui = new UI(() => sablon())
 
 /** POMOCNO **/
 
