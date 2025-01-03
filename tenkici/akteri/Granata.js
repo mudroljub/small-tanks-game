@@ -1,5 +1,5 @@
 import {sudara} from '/game-engine/akcije/sudari.js'
-import Predmet from '/game-engine/klase/Predmet.js'
+import Predmet from '/game-engine/core/Predmet.js'
 import {gravitacija} from '../konstante.js'
 
 const potisak = 500

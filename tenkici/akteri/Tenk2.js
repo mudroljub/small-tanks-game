@@ -1,6 +1,6 @@
 import tipke, {LEVO, DESNO, GORE, DOLE, ENTER} from '/game-engine/io/tipke.js'
 import platno from '/game-engine/io/platno.js'
-import Vreme from '/game-engine/klase/Vreme.js'
+import Vreme from '/game-engine/core/Vreme.js'
 import Tenk from './Tenk.js'
 import Cev2 from './Cev2.js'
 import stanje from '../stanje.js'

@@ -1,7 +1,7 @@
 import tipke, {A, S, W, D, RAZMAK} from '/game-engine/io/tipke.js'
 import platno from '/game-engine/io/platno.js'
-import Vreme from '/game-engine/klase/Vreme.js'
-import Predmet from '/game-engine/klase/Predmet.js'
+import Vreme from '/game-engine/core/Vreme.js'
+import Predmet from '/game-engine/core/Predmet.js'
 import Cev from './Cev.js'
 import Granata from './Granata.js'
 

@@ -1,4 +1,4 @@
-import Predmet from '/game-engine/klase/Predmet.js'
+import Predmet from '/game-engine/core/Predmet.js'
 import {podloga} from '/game-engine/io/platno.js'
 
 export default class Cev extends Predmet {
